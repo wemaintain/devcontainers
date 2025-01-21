@@ -1,0 +1,30 @@
+name: Release features
+
+on:
+  push: { tags: [v*] }
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-24.04
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Publish features
+        if: ${{ always() && hashFiles('features/src/**/devcontainer-feature.json') }}
+        uses: devcontainers/action@v1
+        with:
+          base-path-to-features: ./features/src
+          disable-repo-tagging: "true"
+          features-namespace: lifadev/devcontainers/features
+          generate-docs: "false"
+          oci-registry: ghcr.io
+          publish-features: "true"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
