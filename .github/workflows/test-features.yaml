@@ -27,7 +27,7 @@ jobs:
           from pathlib import Path
 
           features = [
-            feature.name 
+            feature.name
             for feature in Path("features/src").iterdir()
             if feature.is_dir()
           ]
