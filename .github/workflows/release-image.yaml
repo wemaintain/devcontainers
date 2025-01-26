@@ -52,7 +52,7 @@ jobs:
           tags = version.split(".")
           tags = ['.'.join(tags[0:i+1]) for i in range(len(tags))] + ["latest"]
 
-          print(f'tags={json.dumps(tags)}')
+          print(f'tags={", ".join(tags)}')
 
       - name: Publish images
         uses: devcontainers/ci@v0.3
