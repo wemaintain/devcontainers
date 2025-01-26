@@ -59,7 +59,7 @@ jobs:
         with:
           cacheFrom: ghcr.io/lifadev/devcontainers/${{ inputs.image }}
           imageName: ghcr.io/lifadev/devcontainers/${{ inputs.image }}
-          imageTag: ${{ steps.manifest.tags }}
+          imageTag: ${{ steps.manifest.outputs.tags }}
           platform: linux/amd64,linux/arm64
           push: always
           subFolder: ./images/${{ inputs.image }}
