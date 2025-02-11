@@ -20,14 +20,22 @@ jobs:
       contents: read
       packages: write
 
-    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        os:
+          - { name: ubuntu-24.04, platform: linux/amd64 }
+          - { name: ubuntu-24.04-arm, platform: linux/arm64 }
+
+    runs-on: ${{ matrix.os.name }}
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+      - name: Install requirements
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install skopeo
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -62,6 +70,6 @@ jobs:
           cacheFrom: ghcr.io/lifadev/devcontainers/${{ inputs.image }}
           imageName: ghcr.io/lifadev/devcontainers/${{ inputs.image }}
           imageTag: ${{ steps.manifest.outputs.tags }}
-          platform: linux/amd64,linux/arm64
+          platform: ${{ matrix.os.platform }}
           push: always
           subFolder: ./images/${{ inputs.image }}
