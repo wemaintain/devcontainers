@@ -1,20 +1,15 @@
 name: Release image
 
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
       image:
+        type: string
         required: true
-        type: choice
-        options:
-          - base
-          - devcontainer
-          - python313
 
 jobs:
-  config:
-    name: Config
-    if: startsWith(github.ref, 'refs/tags/v')
+  setup:
+    name: Setup
 
     permissions:
       contents: read
@@ -52,9 +47,9 @@ jobs:
       version: ${{ steps.config.outputs.version }}
       tags: ${{ steps.config.outputs.tags }}
 
-  remote:
-    name: Remote
-    needs: config
+  check:
+    name: Check
+    needs: setup
 
     permissions:
       packages: read
@@ -62,9 +57,6 @@ jobs:
     runs-on: ubuntu-24.04
 
     steps:
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
@@ -72,23 +64,23 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Inspect remote version
-        id: remote
+      - name: Check remote version
+        id: check
         run: |
           SKIP=$(docker manifest inspect \
-            ${{ needs.config.outputs.target }}:${{ needs.config.outputs.version }} \
+            ${{ needs.setup.outputs.target }}:${{ needs.setup.outputs.version }} \
             >/dev/null 2>&1 && echo 1 || echo 0)
           echo "skip=$SKIP" >>$GITHUB_OUTPUT
 
     outputs:
-      skip: ${{ steps.remote.outputs.skip }}
+      skip: ${{ steps.check.outputs.skip }}
 
   build:
     name: Build
     needs:
-      - config
-      - remote
-    if: needs.remote.outputs.skip == '0'
+      - setup
+      - check
+    if: needs.check.outputs.skip == '0'
 
     permissions:
       contents: read
@@ -124,9 +116,9 @@ jobs:
       - name: Push image
         uses: devcontainers/ci@v0.3
         with:
-          cacheFrom: ${{ needs.config.outputs.target }}
-          imageName: ${{ needs.config.outputs.target }}
-          imageTag: ${{ needs.config.outputs.version }}-${{ matrix.os.arch }}
+          cacheFrom: ${{ needs.setup.outputs.target }}
+          imageName: ${{ needs.setup.outputs.target }}
+          imageTag: ${{ needs.setup.outputs.version }}-${{ matrix.os.arch }}
           platform: linux/${{ matrix.os.arch }}
           push: always
           subFolder: ./images/${{ inputs.image }}
@@ -134,7 +126,7 @@ jobs:
   release:
     name: Release
     needs:
-      - config
+      - setup
       - build
 
     permissions:
@@ -156,6 +148,6 @@ jobs:
       - name: Create multi-arch manifest
         run: |
           docker buildx imagetools create \
-            ${{ needs.config.outputs.tags }} \
-            ${{ needs.config.outputs.target }}:${{ needs.config.outputs.version }}-amd64 \
-            ${{ needs.config.outputs.target }}:${{ needs.config.outputs.version }}-arm64
+            ${{ needs.setup.outputs.tags }} \
+            ${{ needs.setup.outputs.target }}:${{ needs.setup.outputs.version }}-amd64 \
+            ${{ needs.setup.outputs.target }}:${{ needs.setup.outputs.version }}-arm64
