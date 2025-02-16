@@ -8,7 +8,7 @@
   "options": {
     "pip-version": {
       "type": "string",
-      "default": "25.0" //? https://github.com/pypa/pip/tags
+      "default": "25.0"
     }
   },
   "containerEnv": {

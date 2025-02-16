@@ -4,12 +4,11 @@ on:
   push: { tags: [v*] }
 
 jobs:
-  release:
-    name: Release
+  setup:
+    name: Setup
 
     permissions:
       contents: read
-      packages: write
 
     runs-on: ubuntu-24.04
 
@@ -18,15 +17,34 @@ jobs:
         uses: actions/checkout@v4
         with: { fetch-depth: 0 }
 
-      - name: Publish features
-        if: ${{ always() && hashFiles('features/src/**/devcontainer-feature.json') }}
-        uses: devcontainers/action@v1
-        with:
-          base-path-to-features: ./features/src
-          disable-repo-tagging: "true"
-          features-namespace: lifadev/devcontainers/features
-          generate-docs: "false"
-          oci-registry: ghcr.io
-          publish-features: "true"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Load config
+        id: config
+        run: |
+          python3 <<EOF >> $GITHUB_OUTPUT
+
+          import json
+          from pathlib import Path
+
+          features = [
+            feature.name
+            for feature in Path("features/src").iterdir()
+            if feature.is_dir() and (feature / "devcontainer-feature.json").is_file()
+          ]
+
+          print(f"features={json.dumps(features)}")
+          EOF
+
+    outputs:
+      features: ${{ steps.config.outputs.features }}
+
+  release:
+    name: Release
+    needs: setup
+
+    strategy:
+      matrix:
+        feature: ${{ fromJSON(needs.setup.outputs.features) }}
+
+    uses: ./.github/workflows/release-feature.yaml
+    with:
+      feature: ${{ matrix.feature }}
