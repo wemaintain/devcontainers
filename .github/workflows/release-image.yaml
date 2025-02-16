@@ -29,8 +29,10 @@ jobs:
           import json
           from pathlib import Path
 
-          target = "ghcr.io/lifadev/devcontainers/${{ inputs.image }}"
-          image = Path("images") / "${{ inputs.image }}"
+          IMAGE = "${{ inputs.image }}"
+
+          target = f"ghcr.io/lifadev/devcontainers/{IMAGE}"
+          image = Path("images") / IMAGE
           config = json.loads((image / ".devcontainer" / "devcontainer.json").read_text())
           manifest = config["customizations"]["manifest"]
           name, version = manifest["name"], manifest["version"]
@@ -68,8 +70,11 @@ jobs:
       - name: Check remote version
         id: check
         run: |
+          TARGET="${{ needs.setup.outputs.target }}"
+          VERSION="${{ needs.setup.outputs.version }}"
+
           SKIP=$(docker manifest inspect \
-            ${{ needs.setup.outputs.target }}:${{ needs.setup.outputs.version }} \
+            $TARGET:$VERSION \
             >/dev/null 2>&1 && echo 1 || echo 0)
           echo "skip=$SKIP" >>$GITHUB_OUTPUT
 
@@ -149,7 +154,11 @@ jobs:
 
       - name: Create multi-arch manifest
         run: |
+          TAGS="${{ needs.setup.outputs.tags }}"
+          TARGET="${{ needs.setup.outputs.target }}"
+          VERSION="${{ needs.setup.outputs.version }}"
+
           docker buildx imagetools create \
-            ${{ needs.setup.outputs.tags }} \
-            ${{ needs.setup.outputs.target }}:${{ needs.setup.outputs.version }}-amd64 \
-            ${{ needs.setup.outputs.target }}:${{ needs.setup.outputs.version }}-arm64
+            $TAGS \
+            $TARGET:$VERSION-amd64 \
+            $TARGET:$VERSION-arm64
