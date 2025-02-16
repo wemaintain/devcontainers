@@ -15,6 +15,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
 
       - name: Generate matrix
         id: generate-matrix
@@ -57,6 +58,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
 
       - name: Test features
         run: |
