@@ -3,9 +3,7 @@ name: Release feature
 on:
   workflow_call:
     inputs:
-      feature:
-        type: string
-        required: true
+      feature: { type: string, required: true }
 
 jobs:
   setup:
@@ -23,25 +21,23 @@ jobs:
 
       - name: Load config
         id: config
+        env:
+          FEATURE: ${{ inputs.feature }}
         run: |
           python3 <<EOF >> $GITHUB_OUTPUT
 
           import json
+          from os import environ
           from pathlib import Path
 
-          FEATURE = "${{ inputs.feature }}"
-
-          target = f"ghcr.io/lifadev/devcontainers/features/{FEATURE}"
-          feature = Path("features/src") / FEATURE
+          feature = Path("features/src") / environ["FEATURE"]
           manifest = json.loads((feature / "devcontainer-feature.json").read_text())
           name, version = manifest["name"], manifest["version"]
 
-          print(f"target={target}")
           print(f"version={version}")
           EOF
 
     outputs:
-      target: ${{ steps.config.outputs.target }}
       version: ${{ steps.config.outputs.version }}
 
   check:
@@ -57,18 +53,20 @@ jobs:
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
-          registry: ghcr.io
+          registry: ${{ vars.CONTAINER_REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check remote version
         id: check
+        env:
+          REGISTRY: ${{ vars.CONTAINER_REGISTRY }}
+          NAMESPACE: ${{ vars.CONTAINER_NAMESPACE_FEATURE }}
+          FEATURE: ${{ inputs.feature }}
+          VERSION: ${{ needs.setup.outputs.version }}
         run: |
-          TARGET="${{ needs.setup.outputs.target }}"
-          VERSION="${{ needs.setup.outputs.version }}"
-
           SKIP=$(docker manifest inspect \
-            $TARGET:$VERSION \
+            "$REGISTRY/$NAMESPACE/$FEATURE:$VERSION" \
             >/dev/null 2>&1 && echo 1 || echo 0)
           echo "skip=$SKIP" >>$GITHUB_OUTPUT
 
@@ -96,15 +94,17 @@ jobs:
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
-          registry: ghcr.io
+          registry: ${{ vars.CONTAINER_REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Publish feature
+        env:
+          REGISTRY: ${{ vars.CONTAINER_REGISTRY }}
+          NAMESPACE: ${{ vars.CONTAINER_NAMESPACE_FEATURE }}
+          FEATURE: ${{ inputs.feature }}
         run: |
-          FEATURE="${{ inputs.feature }}"
-
           npx -y @devcontainers/cli features publish \
-            --registry ghcr.io \
-            --namespace lifadev/devcontainers/features \
-            features/src/$FEATURE
+            --registry "$REGISTRY" \
+            --namespace "$NAMESPACE" \
+            "features/src/$FEATURE"
