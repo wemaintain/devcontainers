@@ -1,8 +1,0 @@
-{
-  "id": "node23",
-  "name": "node23",
-  "version": "0.2.5",
-  "containerEnv": {
-    "PATH": "/opt/node23/bin:$PATH"
-  }
-}
