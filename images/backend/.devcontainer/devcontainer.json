@@ -15,18 +15,12 @@
   },
   "customizations": {
     "manifest": {
-      "name": "devcontainer",
-      "version": "0.3.5"
+      "name": "backend",
+      "version": "0.1.0"
     },
     "vscode": {
       "settings": {
-        "extensions.ignoreRecommendations": true,
-        "json.schemas": [
-          {
-            "fileMatch": ["*/devcontainer-feature.json"],
-            "url": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainerFeature.schema.json"
-          }
-        ]
+        "extensions.ignoreRecommendations": true
       },
       "extensions": []
     }
