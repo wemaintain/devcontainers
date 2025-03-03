@@ -1,8 +1,0 @@
-{
-  "id": "node20",
-  "name": "node20",
-  "version": "0.1.2",
-  "containerEnv": {
-    "PATH": "/opt/node20/bin:$PATH"
-  }
-}
