@@ -1,0 +1,28 @@
+{
+  "image": "debian:bookworm-20250224",
+  "features": {
+    "ghcr.io/lifadev/devcontainers/features/base:0": {},
+    "ghcr.io/lifadev/devcontainers/features/bash:0": {},
+    "ghcr.io/lifadev/devcontainers/features/cdk:0": {},
+    "ghcr.io/lifadev/devcontainers/features/developer:0": {},
+    "ghcr.io/lifadev/devcontainers/features/node23:0": {},
+    "ghcr.io/lifadev/devcontainers/features/starship:0": {}
+  },
+  "remoteUser": "developer",
+  "updateRemoteUserUID": true,
+  "remoteEnv": {
+    "PATH": "/opt/bin:${containerEnv:PATH}"
+  },
+  "customizations": {
+    "manifest": {
+      "name": "backend",
+      "version": "0.1.0"
+    },
+    "vscode": {
+      "settings": {
+        "extensions.ignoreRecommendations": true
+      },
+      "extensions": []
+    }
+  }
+}
