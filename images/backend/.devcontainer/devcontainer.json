@@ -6,17 +6,22 @@
     "ghcr.io/lifadev/devcontainers/features/cdk:0": {},
     "ghcr.io/lifadev/devcontainers/features/developer:0": {},
     "ghcr.io/lifadev/devcontainers/features/node20:0": {},
-    "ghcr.io/lifadev/devcontainers/features/starship:0": {}
+    "ghcr.io/wemaintain/devcontainers/features/nx:0": {},
+    "ghcr.io/lifadev/devcontainers/features/starship:0": {},
+    "ghcr.io/wemaintain/devcontainers/features/terraform:0": {}
   },
   "remoteUser": "developer",
   "updateRemoteUserUID": true,
   "remoteEnv": {
     "PATH": "/opt/bin:${containerEnv:PATH}"
   },
+  "mounts": [
+    "source=${localEnv:HOME}/.terraform.d,target=/home/developer/.terraform.d,type=bind"
+  ],
   "customizations": {
     "manifest": {
       "name": "backend",
-      "version": "0.1.1"
+      "version": "0.2.0"
     },
     "vscode": {
       "settings": {
