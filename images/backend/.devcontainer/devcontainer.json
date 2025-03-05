@@ -5,7 +5,7 @@
     "ghcr.io/lifadev/devcontainers/features/bash:0": {},
     "ghcr.io/lifadev/devcontainers/features/cdk:0": {},
     "ghcr.io/lifadev/devcontainers/features/developer:0": {},
-    "ghcr.io/lifadev/devcontainers/features/node23:0": {},
+    "ghcr.io/lifadev/devcontainers/features/node20:0": {},
     "ghcr.io/lifadev/devcontainers/features/starship:0": {}
   },
   "remoteUser": "developer",
@@ -16,7 +16,7 @@
   "customizations": {
     "manifest": {
       "name": "backend",
-      "version": "0.1.0"
+      "version": "0.1.1"
     },
     "vscode": {
       "settings": {
