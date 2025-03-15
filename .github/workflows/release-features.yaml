@@ -1,11 +1,14 @@
 name: Release features
 
 on:
-  push: { tags: [v*] }
+  pull_request:
+    types: [closed]
+    paths: ["features/**"]
 
 jobs:
   setup:
     name: Setup
+    if: github.event.pull_request.merged == true
 
     permissions:
       contents: read
