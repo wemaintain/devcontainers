@@ -24,7 +24,6 @@ rm -rf /var/lib/apt/lists/*
 #---
 
 #? https://github.com/starship/starship/tags
-#? .sha256
 PACKAGE_VERSION=1.22.1
 case $ARCH in
 amd64)

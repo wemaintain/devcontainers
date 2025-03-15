@@ -39,8 +39,8 @@ rm -rf /var/lib/apt/lists/*
 
 #---
 
-#? https://github.com/python/cpython/tags
 #? https://github.com/docker-library/python/blob/master/3.13/bookworm/Dockerfile
+#? https://github.com/python/cpython/tags
 PACKAGE_VERSION=3.13.2
 PACKAGE_URL="https://www.python.org/ftp/python/${PACKAGE_VERSION}/Python-${PACKAGE_VERSION}.tar.xz"
 PACKAGE_SUM=d984bcc57cd67caab26f7def42e523b1c015bbc5dc07836cf4f0b63fa159eb56
@@ -109,11 +109,17 @@ ldconfig
 #---
 
 #? https://github.com/pypa/build/tags
+PACKAGE_VERSION=1.2.2.post1
+python3 -m pip install --upgrade build==$PACKAGE_VERSION
+
 #? https://github.com/pypa/pip/tags
+PACKAGE_VERSION=25.0.1
+python3 -m pip install --upgrade pip==$PACKAGE_VERSION
+
 #? https://github.com/pypa/setuptools/tags
+PACKAGE_VERSION=75.8.2
+python3 -m pip install --upgrade setuptools==$PACKAGE_VERSION
+
 #? https://github.com/pypa/wheel/tags
-python3 -m pip install --upgrade \
-  "build==1.2.2.post1" \
-  "pip==25.0.1" \
-  "setuptools==75.8.2" \
-  "wheel==0.45.1"
+PACKAGE_VERSION=0.45.1
+python3 -m pip install --upgrade wheel==$PACKAGE_VERSION

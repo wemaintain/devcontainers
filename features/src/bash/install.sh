@@ -25,7 +25,6 @@ rm -rf /var/lib/apt/lists/*
 #---
 
 #? https://github.com/koalaman/shellcheck/tags
-#? manual checksum
 PACKAGE_VERSION=0.10.0
 case $ARCH in
 amd64)
@@ -50,7 +49,6 @@ rm -f $PACKAGE
 #---
 
 #? https://github.com/mvdan/sh/tags
-#? sha256sums.txt
 PACKAGE_VERSION=3.10.0
 case $ARCH in
 amd64)

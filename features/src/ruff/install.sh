@@ -24,7 +24,6 @@ rm -rf /var/lib/apt/lists/*
 #---
 
 #? https://github.com/astral-sh/ruff/tags
-#? .sha256
 PACKAGE_VERSION=0.9.9
 case $ARCH in
 amd64)

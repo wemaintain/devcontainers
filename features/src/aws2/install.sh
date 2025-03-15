@@ -25,7 +25,6 @@ rm -rf /var/lib/apt/lists/*
 #---
 
 #? https://github.com/aws/aws-cli/tags
-#? sha256sum
 PACKAGE_VERSION=2.24.19
 case $ARCH in
 amd64)

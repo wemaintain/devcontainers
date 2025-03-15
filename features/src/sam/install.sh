@@ -25,7 +25,6 @@ rm -rf /var/lib/apt/lists/*
 #---
 
 #? https://github.com/aws/aws-sam-cli/tags
-#? plain text
 PACKAGE_VERSION=1.135.0
 case $ARCH in
 amd64)

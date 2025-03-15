@@ -29,7 +29,6 @@ rm -rf /var/lib/apt/lists/*
 #---
 
 #? https://github.com/nodejs/node/tags
-#? SHASUMS256.txt
 PACKAGE_VERSION=23.9.0
 case $ARCH in
 amd64)
@@ -54,7 +53,8 @@ rm -f $PACKAGE
 #---
 
 #? https://github.com/npm/cli/tags
-npm install -g npm@11.1.0
+PACKAGE_VERSION=11.1.0
+npm install -g npm@$PACKAGE_VERSION
 
 #---
 
