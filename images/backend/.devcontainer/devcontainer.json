@@ -20,12 +20,13 @@
   "customizations": {
     "manifest": {
       "name": "backend",
-      "version": "0.3.0"
+      "version": "0.3.1"
     },
     "vscode": {
       "settings": {
         "extensions.ignoreRecommendations": true
-      }
+      },
+      "extensions": ["graphql.vscode-graphql-syntax", "graphql.vscode-graphql"]
     }
   }
 }
