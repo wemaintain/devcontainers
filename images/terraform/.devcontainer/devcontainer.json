@@ -1,0 +1,25 @@
+{
+  "image": "debian:bookworm-20250224",
+  "features": {
+    "ghcr.io/lifadev/devcontainers/features/base:0": {},
+    "ghcr.io/lifadev/devcontainers/features/bash:0": {},
+    "ghcr.io/wemaintain/devcontainers/features/terraform:0": {}
+  },
+  "remoteUser": "developer",
+  "updateRemoteUserUID": true,
+  "remoteEnv": {
+    "PATH": "/opt/bin:${containerEnv:PATH}"
+  },
+  "customizations": {
+    "manifest": {
+      "name": "terraform",
+      "version": "0.1.0"
+    },
+    "vscode": {
+      "settings": {
+        "extensions.ignoreRecommendations": true
+      },
+      "extensions": ["hashicorp.terraform"]
+    }
+  }
+}
