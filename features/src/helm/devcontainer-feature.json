@@ -1,0 +1,11 @@
+{
+  "id": "helm",
+  "name": "helm",
+  "version": "0.1.0",
+  "containerEnv": {
+    "HELM_PLUGINS": "/opt/helm/plugins"
+  },
+  "customizations": {
+    "extensions": ["tim-koehler.helm-intellisense"]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "node20": {
+    "image": "debian:bookworm-20250224",
+    "features": {
+      "ghcr.io/lifadev/devcontainers/features/node20:0": {},
+      "cdktf": {}
+    },
+    "overrideFeatureInstallOrder": [
+      "ghcr.io/lifadev/devcontainers/features/node20:0",
+      "./cdktf"
+    ]
+  }
+}

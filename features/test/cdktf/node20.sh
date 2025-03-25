@@ -5,7 +5,6 @@ set -eux
 source dev-container-features-test-lib
 
 APPS=(
-  terraform
   cdktf
 )
 
