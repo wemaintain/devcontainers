@@ -1,16 +1,11 @@
 {
-  "node20": {
+  "default": {
     "image": "debian:bookworm-20250224",
     "features": {
-      "ghcr.io/lifadev/devcontainers/features/node20:0": {},
       "terraform": {}
     },
     "remoteEnv": {
       "PATH": "/opt/bin:${containerEnv:PATH}"
-    },
-    "overrideFeatureInstallOrder": [
-      "ghcr.io/lifadev/devcontainers/features/node20:0",
-      "./terraform"
-    ]
+    }
   }
 }

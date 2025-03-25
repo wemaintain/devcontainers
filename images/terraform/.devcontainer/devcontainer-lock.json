@@ -9,11 +9,6 @@
       "version": "0.2.1",
       "resolved": "ghcr.io/lifadev/devcontainers/features/bash@sha256:bbb92d74cf25d74e088670dcae231300a953475b39d7f5fbf07cd1b613198341",
       "integrity": "sha256:bbb92d74cf25d74e088670dcae231300a953475b39d7f5fbf07cd1b613198341"
-    },
-    "ghcr.io/wemaintain/devcontainers/features/terraform:0": {
-      "version": "0.1.0",
-      "resolved": "ghcr.io/wemaintain/devcontainers/features/terraform@sha256:989749807e35f118c22ffe89644fde331e1761ff39f094de09b03d72657a2596",
-      "integrity": "sha256:989749807e35f118c22ffe89644fde331e1761ff39f094de09b03d72657a2596"
     }
   }
 }

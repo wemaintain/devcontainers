@@ -47,9 +47,6 @@ mkdir -p $INSTALL_DIR
 unzip $PACKAGE -d $INSTALL_DIR
 rm -f $PACKAGE
 
-#? https://www.npmjs.com/package/cdktf-cli?activeTab=versions
-npm install -g cdktf-cli@0.20.11
-
 #---
 
 #? https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli#enable-tab-completion

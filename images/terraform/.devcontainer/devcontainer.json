@@ -2,8 +2,7 @@
   "image": "debian:bookworm-20250224",
   "features": {
     "ghcr.io/lifadev/devcontainers/features/base:0": {},
-    "ghcr.io/lifadev/devcontainers/features/bash:0": {},
-    "ghcr.io/wemaintain/devcontainers/features/terraform:0": {}
+    "ghcr.io/lifadev/devcontainers/features/bash:0": {}
   },
   "remoteUser": "developer",
   "updateRemoteUserUID": true,
