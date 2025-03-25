@@ -1,0 +1,8 @@
+{
+  "id": "kube",
+  "name": "kube",
+  "version": "0.1.0",
+  "customizations": {
+    "extensions": ["ms-kubernetes-tools.vscode-kubernetes-tools"]
+  }
+}
