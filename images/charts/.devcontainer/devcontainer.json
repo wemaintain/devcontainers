@@ -3,8 +3,10 @@
   "features": {
     "ghcr.io/lifadev/devcontainers/features/base:0": {},
     "ghcr.io/lifadev/devcontainers/features/bash:0": {},
+    "ghcr.io/lifadev/devcontainers/features/developer:0": {},
     "ghcr.io/wemaintain/devcontainers/features/helm:0": {},
-    "ghcr.io/wemaintain/devcontainers/features/kube:0": {}
+    "ghcr.io/wemaintain/devcontainers/features/kube:0": {},
+    "ghcr.io/lifadev/devcontainers/features/starship:0": {}
   },
   "remoteUser": "developer",
   "updateRemoteUserUID": true,
@@ -14,7 +16,7 @@
   "customizations": {
     "manifest": {
       "name": "charts",
-      "version": "0.1.0"
+      "version": "0.1.1"
     },
     "vscode": {
       "settings": {

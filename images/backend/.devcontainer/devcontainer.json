@@ -5,10 +5,10 @@
     "ghcr.io/lifadev/devcontainers/features/base:0": {},
     "ghcr.io/lifadev/devcontainers/features/bash:0": {},
     "ghcr.io/lifadev/devcontainers/features/cdk:0": {},
-    "ghcr.io/lifadev/devcontainers/features/cdktf:0": {},
     "ghcr.io/lifadev/devcontainers/features/developer:0": {},
     "ghcr.io/lifadev/devcontainers/features/node20:0": {},
     "ghcr.io/lifadev/devcontainers/features/starship:0": {},
+    "ghcr.io/wemaintain/devcontainers/features/cdktf:0": {},
     "ghcr.io/wemaintain/devcontainers/features/nx:0": {},
     "ghcr.io/wemaintain/devcontainers/features/terraform:0": {},
     "ghcr.io/wemaintain/devcontainers/features/yarn1:0": {}
