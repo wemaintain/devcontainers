@@ -1,0 +1,56 @@
+[
+  {
+    "name": "kube",
+    "version": "1.32.3",
+    "hint": "release",
+    "repository": "cdn.dl.k8s.io/release/stable.txt",
+    "artifacts": [
+      {
+        "architecture": "amd64",
+        "url": "https://dl.k8s.io/release/v${VERSION}/bin/linux/amd64/kubectl",
+        "checksum": "ab209d0c5134b61486a0486585604a616a5bb2fc07df46d304b3c95817b2d79f"
+      },
+      {
+        "architecture": "arm64",
+        "url": "https://dl.k8s.io/release/v${VERSION}/bin/linux/arm64/kubectl",
+        "checksum": "6c2c91e760efbf3fa111a5f0b99ba8975fb1c58bb3974eca88b6134bcf3717e2"
+      }
+    ]
+  },
+  {
+    "name": "kubectx",
+    "version": "0.9.5",
+    "hint": "release",
+    "repository": "github.com/ahmetb/kubectx/releases",
+    "artifacts": [
+      {
+        "architecture": "amd64",
+        "url": "https://github.com/ahmetb/kubectx/releases/download/v${VERSION}/kubectx_v${VERSION}_linux_x86_64.tar.gz",
+        "checksum": "a2247ffd23e79f89abdd0e8173379d7172511f02a3f63c9936d3824e0dd60648"
+      },
+      {
+        "architecture": "arm64",
+        "url": "https://github.com/ahmetb/kubectx/releases/download/v${VERSION}/kubectx_v${VERSION}_linux_arm64.tar.gz",
+        "checksum": "40a69c3156984cffb2766e729c8d756aa8d8c0926ef697ae8be12bd25161cd35"
+      }
+    ]
+  },
+  {
+    "name": "kubens",
+    "version": "0.9.5",
+    "hint": "release",
+    "repository": "github.com/ahmetb/kubectx/releases",
+    "artifacts": [
+      {
+        "architecture": "amd64",
+        "url": "https://github.com/ahmetb/kubectx/releases/download/v${VERSION}/kubens_v${VERSION}_linux_x86_64.tar.gz",
+        "checksum": "acc1a9c7f6b722fbe5fad25dd0e784a7335d18436b9c414ab996629e82702cba"
+      },
+      {
+        "architecture": "arm64",
+        "url": "https://github.com/ahmetb/kubectx/releases/download/v${VERSION}/kubens_v${VERSION}_linux_arm64.tar.gz",
+        "checksum": "a0de47f47e0d8e176929069657c96fb0d8f2422bff2550d608aa1df894635736"
+      }
+    ]
+  }
+]
