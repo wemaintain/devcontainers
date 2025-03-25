@@ -3,7 +3,8 @@
   "features": {
     "ghcr.io/lifadev/devcontainers/features/base:0": {},
     "ghcr.io/lifadev/devcontainers/features/bash:0": {},
-    "ghcr.io/wemaintain/devcontainers/features/terraform:0": {}
+    "ghcr.io/wemaintain/devcontainers/features/helm:0": {},
+    "ghcr.io/wemaintain/devcontainers/features/kube:0": {}
   },
   "remoteUser": "developer",
   "updateRemoteUserUID": true,
@@ -12,14 +13,13 @@
   },
   "customizations": {
     "manifest": {
-      "name": "terraform",
-      "version": "0.2.0"
+      "name": "charts",
+      "version": "0.1.0"
     },
     "vscode": {
       "settings": {
         "extensions.ignoreRecommendations": true
-      },
-      "extensions": ["hashicorp.terraform"]
+      }
     }
   }
 }
