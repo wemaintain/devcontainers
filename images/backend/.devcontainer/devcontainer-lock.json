@@ -17,13 +17,8 @@
     },
     "ghcr.io/lifadev/devcontainers/features/cdk:0": {
       "version": "0.1.1",
-      "resolved": "ghcr.io/lifadev/devcontainers/features/cdksha256:3fff33d870eb0a890d31130fa824791298dfc13104641d0c0ad54b6c812b6ff1",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/cdk@sha256:3fff33d870eb0a890d31130fa824791298dfc13104641d0c0ad54b6c812b6ff1",
       "integrity": "sha256:3fff33d870eb0a890d31130fa824791298dfc13104641d0c0ad54b6c812b6ff1"
-    },
-    "ghcr.io/wemaintain/devcontainers/features/cdktf:0": {
-      "version": "0.1.0",
-      "resolved": "ghcr.io/wemaintain/devcontainers/features/terraform@sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
-      "integrity": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
     },
     "ghcr.io/lifadev/devcontainers/features/developer:0": {
       "version": "0.1.2",
@@ -40,9 +35,14 @@
       "resolved": "ghcr.io/lifadev/devcontainers/features/starship@sha256:4131a20d929b16497f0367789b69d723955b02d345eb7c786e559af0b03478c7",
       "integrity": "sha256:4131a20d929b16497f0367789b69d723955b02d345eb7c786e559af0b03478c7"
     },
+    "ghcr.io/wemaintain/devcontainers/features/cdktf:0": {
+      "version": "0.1.0",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/cdktf@sha256:8db72cfbc4ab69eaaa417f4685e0bd19f5ad8166a141eab607f6e525b89ce122",
+      "integrity": "sha256:8db72cfbc4ab69eaaa417f4685e0bd19f5ad8166a141eab607f6e525b89ce122"
+    },
     "ghcr.io/wemaintain/devcontainers/features/nx:0": {
       "version": "0.2.0",
-      "resolved": "ghcr.io/wemaintain/devcontainers/features/nxsha256:315df1dccb3fd8e70edb2307bada5d72a50aefec0de3bb10c698b69eafcd2ee6",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/nx@sha256:315df1dccb3fd8e70edb2307bada5d72a50aefec0de3bb10c698b69eafcd2ee6",
       "integrity": "sha256:315df1dccb3fd8e70edb2307bada5d72a50aefec0de3bb10c698b69eafcd2ee6"
     },
     "ghcr.io/wemaintain/devcontainers/features/terraform:0": {
@@ -52,7 +52,7 @@
     },
     "ghcr.io/wemaintain/devcontainers/features/yarn1:0": {
       "version": "0.1.0",
-      "resolved": "ghcr.io/wemaintain/devcontainers/features/terraformsha256:5ee6552ee67f806f757f96bdf503c8b5ab1f4c6877a3a80c1588ed3636d36cc3",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/yarn1@sha256:5ee6552ee67f806f757f96bdf503c8b5ab1f4c6877a3a80c1588ed3636d36cc3",
       "integrity": "sha256:5ee6552ee67f806f757f96bdf503c8b5ab1f4c6877a3a80c1588ed3636d36cc3"
     }
   }
