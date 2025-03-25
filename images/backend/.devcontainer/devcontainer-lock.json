@@ -20,15 +20,20 @@
       "resolved": "ghcr.io/lifadev/devcontainers/features/cdksha256:3fff33d870eb0a890d31130fa824791298dfc13104641d0c0ad54b6c812b6ff1",
       "integrity": "sha256:3fff33d870eb0a890d31130fa824791298dfc13104641d0c0ad54b6c812b6ff1"
     },
+    "ghcr.io/wemaintain/devcontainers/features/cdktf:0": {
+      "version": "0.1.0",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/terraform@sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "integrity": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
     "ghcr.io/lifadev/devcontainers/features/developer:0": {
       "version": "0.1.2",
       "resolved": "ghcr.io/lifadev/devcontainers/features/developer@sha256:343a522561fd36025fa42cb56a273aa3d8be8e4cec7e8e12373cf4de5a31dcb8",
       "integrity": "sha256:343a522561fd36025fa42cb56a273aa3d8be8e4cec7e8e12373cf4de5a31dcb8"
     },
     "ghcr.io/lifadev/devcontainers/features/node20:0": {
-      "version": "0.1.2",
-      "resolved": "ghcr.io/lifadev/devcontainers/features/node20@sha256:02296d5e0460ebb9797f29eef2c88ca8241994036ec95aa8cc3fed75df16c400",
-      "integrity": "sha256:02296d5e0460ebb9797f29eef2c88ca8241994036ec95aa8cc3fed75df16c400"
+      "version": "0.1.3",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/node20@sha256:380541d0c4915761eb3015689b8d6c38f49aa2a7ba22b09a0b4ae9becd2b321e",
+      "integrity": "sha256:380541d0c4915761eb3015689b8d6c38f49aa2a7ba22b09a0b4ae9becd2b321e"
     },
     "ghcr.io/lifadev/devcontainers/features/starship:0": {
       "version": "0.1.2",
@@ -41,9 +46,9 @@
       "integrity": "sha256:315df1dccb3fd8e70edb2307bada5d72a50aefec0de3bb10c698b69eafcd2ee6"
     },
     "ghcr.io/wemaintain/devcontainers/features/terraform:0": {
-      "version": "0.1.0",
-      "resolved": "ghcr.io/wemaintain/devcontainers/features/terraform@sha256:989749807e35f118c22ffe89644fde331e1761ff39f094de09b03d72657a2596",
-      "integrity": "sha256:989749807e35f118c22ffe89644fde331e1761ff39f094de09b03d72657a2596"
+      "version": "0.2.0",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/terraform@sha256:ec27f5458598f8d41afcb21f0658fff52907d54465c81313fd692581fb6d5de0",
+      "integrity": "sha256:ec27f5458598f8d41afcb21f0658fff52907d54465c81313fd692581fb6d5de0"
     },
     "ghcr.io/wemaintain/devcontainers/features/yarn1:0": {
       "version": "0.1.0",
