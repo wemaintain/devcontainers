@@ -40,7 +40,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          git checkout -b "$FEATURE/$(uuid -v4 | cut -d- -f2)"
+          git checkout -b "feature/$FEATURE/$(uuid -v4 | cut -d- -f2)"
 
           bash ./features/bin/update.sh "$FEATURE"
           npx -y prettier -w "features/src/$FEATURE"
