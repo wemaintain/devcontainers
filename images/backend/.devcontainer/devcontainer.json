@@ -10,14 +10,14 @@
     "ghcr.io/lifadev/devcontainers/features/starship:0": {},
     "ghcr.io/wemaintain/devcontainers/features/cdktf:0": {},
     "ghcr.io/wemaintain/devcontainers/features/nx:0": {},
-    "ghcr.io/wemaintain/devcontainers/features/terraform:0": {},
-    "ghcr.io/wemaintain/devcontainers/features/yarn1:0": {}
+    "ghcr.io/wemaintain/devcontainers/features/terraform:0": {}
   },
   "remoteUser": "developer",
   "updateRemoteUserUID": true,
   "remoteEnv": {
     "PATH": "/opt/bin:${containerEnv:PATH}"
   },
+  "postCreateCommand": "corepack enable",
   "customizations": {
     "manifest": {
       "name": "backend",
