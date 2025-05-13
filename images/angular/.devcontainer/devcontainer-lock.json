@@ -1,0 +1,39 @@
+{
+  "features": {
+    "ghcr.io/lifadev/devcontainers/features/base:2025": {
+      "version": "2025.4.12",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/base@sha256:d083d0f6d166afaebcb771e9adfa8f957bf27f3449a383fc2655aded11de9846",
+      "integrity": "sha256:d083d0f6d166afaebcb771e9adfa8f957bf27f3449a383fc2655aded11de9846"
+    },
+    "ghcr.io/lifadev/devcontainers/features/bash:2025": {
+      "version": "2025.4.12",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/bash@sha256:fa6b20635baa88fb3ebe05528a54332709f5ed9cb317b844c75d325faf5b6873",
+      "integrity": "sha256:fa6b20635baa88fb3ebe05528a54332709f5ed9cb317b844c75d325faf5b6873"
+    },
+    "ghcr.io/lifadev/devcontainers/features/developer:2025": {
+      "version": "2025.4.12",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/developer@sha256:9fdc2762f0e4da0b0038f25e6a6b70c3e643d164002f90ba0957deb0c975330f",
+      "integrity": "sha256:9fdc2762f0e4da0b0038f25e6a6b70c3e643d164002f90ba0957deb0c975330f"
+    },
+    "ghcr.io/lifadev/devcontainers/features/starship:2025": {
+      "version": "2025.4.28",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/starship@ssha256:6566b0d9b94bb0567ea6022624f34f07b850fdbd97b29f45d6e0e44c5a969fef",
+      "integrity": "sha256:6566b0d9b94bb0567ea6022624f34f07b850fdbd97b29f45d6e0e44c5a969fef"
+    },
+    "ghcr.io/lifadev/devcontainers/features/node20:2025": {
+      "version": "2025.4.23",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/node20@sha256:ad4d0dc2ed20056de9419578defc06a980ba15074fedc1f8754da36226cf7336",
+      "integrity": "sha256:ad4d0dc2ed20056de9419578defc06a980ba15074fedc1f8754da36226cf7336"
+    },
+    "ghcr.io/wemaintain/devcontainers/features/nx:0": {
+      "version": "0.2.0",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/nx@sha256:315df1dccb3fd8e70edb2307bada5d72a50aefec0de3bb10c698b69eafcd2ee6",
+      "integrity": "sha256:315df1dccb3fd8e70edb2307bada5d72a50aefec0de3bb10c698b69eafcd2ee6"
+    },
+    "ghcr.io/wemaintain/devcontainers/features/angular:2025": {
+      "version": "2025.5.13",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/angular@sha256:292d5096e1e9a247744c2995be8db0446689f7e68e2a8b729c9a7e511b69dc1f",
+      "integrity": "sha256:292d5096e1e9a247744c2995be8db0446689f7e68e2a8b729c9a7e511b69dc1f"
+    }
+  }
+}
