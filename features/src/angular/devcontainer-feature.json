@@ -1,7 +1,7 @@
 {
-  "id": "cdktf",
-  "name": "cdktf",
-  "version": "0.1.0",
+  "id": "angular",
+  "name": "angular",
+  "version": "2025.5.13",
   "installsAfter": [
     "ghcr.io/lifadev/devcontainers/features/node20",
     "ghcr.io/lifadev/devcontainers/features/node23"
@@ -10,10 +10,10 @@
     "manifest": {
       "dependencies": [
         {
-          "name": "cdktf",
-          "version": "0.20.12",
+          "name": "ng",
+          "version": "19.2.11",
           "hint": "tags/v?[0-9]+\\.[0-9]+(\\.[0-9]+)?",
-          "repository": "github.com/hashicorp/terraform-cdk"
+          "repository": "github.com/angular/angular-cli"
         }
       ]
     }
