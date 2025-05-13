@@ -6,4 +6,4 @@ set -eux
 source dev-container-features-install-lib
 
 npm install -g \
-  "cdktf-cli@$(dc_version ng)"
+  "@angular/cli@$(dc_version ng)"
