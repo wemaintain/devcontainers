@@ -8,7 +8,7 @@
         {
           "name": "terraform",
           "version": "1.11.1",
-          "hint": "tags/v1\\.[0-9]+(\\.[0-9]+)?",
+          "hint": "tags/v?1\\.[0-9]+(\\.[0-9]+)?",
           "repository": "github.com/hashicorp/terraform",
           "artifacts": [
             {
