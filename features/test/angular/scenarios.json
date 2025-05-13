@@ -3,11 +3,11 @@
     "image": "debian:bookworm-20250224",
     "features": {
       "ghcr.io/lifadev/devcontainers/features/node20:2025": {},
-      "cdktf": {}
+      "angular": {}
     },
     "overrideFeatureInstallOrder": [
       "ghcr.io/lifadev/devcontainers/features/node20:2025",
-      "./cdktf"
+      "./angular"
     ]
   }
 }
