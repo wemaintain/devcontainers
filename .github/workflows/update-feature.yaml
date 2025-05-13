@@ -35,7 +35,7 @@ jobs:
       - name: Update feature
         id: update
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
           FEATURE: ${{ inputs.feature }}
         run: |
           set -euo pipefail
@@ -57,7 +57,7 @@ jobs:
       - name: Create pull request
         if: steps.update.outputs.skip == '0'
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
           FEATURE: ${{ inputs.feature }}
         run: |
           gh pr create \
