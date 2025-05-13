@@ -35,7 +35,7 @@ jobs:
       - name: Update feature
         id: update
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           FEATURE: ${{ inputs.feature }}
         run: |
           set -euo pipefail
