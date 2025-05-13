@@ -5,5 +5,17 @@
   "installsAfter": [
     "ghcr.io/lifadev/devcontainers/features/node20",
     "ghcr.io/lifadev/devcontainers/features/node23"
-  ]
+  ],
+  "customizations": {
+    "manifest": {
+      "dependencies": [
+        {
+          "name": "cdktf",
+          "version": "0.20.12",
+          "hint": "tags/v?[0-9]+\\.[0-9]+(\\.[0-9]+)?",
+          "repository": "github.com/hashicorp/terraform-cdk"
+        }
+      ]
+    }
+  }
 }
