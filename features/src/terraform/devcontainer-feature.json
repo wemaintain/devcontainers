@@ -1,7 +1,7 @@
 {
   "id": "terraform",
   "name": "terraform",
-  "version": "2025.04.24",
+  "version": "2025.4.24",
   "customizations": {
     "manifest": {
       "dependencies": [
