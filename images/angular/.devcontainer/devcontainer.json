@@ -14,10 +14,11 @@
   "remoteEnv": {
     "PATH": "/opt/bin:${containerEnv:PATH}"
   },
+  "postCreateCommand": "corepack enable",
   "customizations": {
     "manifest": {
       "name": "angular",
-      "version": "0.0.1"
+      "version": "0.0.2"
     },
     "vscode": {
       "settings": {
