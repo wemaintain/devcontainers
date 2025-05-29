@@ -3,7 +3,7 @@ name: Update features
 on:
   workflow_dispatch:
   schedule:
-    - cron: "25 0 * * *" # at 00:25 UTC
+    - cron: "25 22 * * *" # at 22:25 UTC
 
 jobs:
   setup:
