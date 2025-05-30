@@ -1,0 +1,68 @@
+name: Update Devcontainer
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "25 2 * * *" # at 02:25 UTC
+
+jobs:
+  update:
+    name: Update
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+
+      - name: Install requirements
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install moreutils uuid
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Update Devcontainer
+        id: update
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          git checkout -b "devcontainer/$(uuid -v4 | cut -d- -f2)"
+
+          SOURCE=images/src/devcontainer/.devcontainer/devcontainer.json
+          TARGET=.devcontainer/devcontainer.json
+
+          jq \
+            --arg VERSION "$(jq -r '.customizations.manifest.version' $SOURCE)" \
+            '.image = "ghcr.io/lifadev/devcontainers/devcontainer:\($VERSION)"' \
+            $TARGET | sponge $TARGET
+
+          npx -y prettier -w $TARGET
+
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "skip=1" >>$GITHUB_OUTPUT
+            exit 0
+          fi
+
+          git commit -am "devcontainer: update dependencies"
+          git push -u origin HEAD
+          echo "skip=0" >>$GITHUB_OUTPUT
+
+      - name: Create pull request
+        if: steps.update.outputs.skip == '0'
+        env:
+          GH_TOKEN: ${{ secrets.token }}
+        run: |
+          gh pr create \
+            --title "devcontainer: update dependencies" --body "" \
+            --base main
