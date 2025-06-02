@@ -90,22 +90,26 @@ update_dependency() {
   [[ "$REPO" == github.com/* ]] || die "Unsupported repository: $REPO"
   [[ "$HINT" == tags/* || "$HINT" == releases/* ]] || die "Unsupported hint: $HINT"
 
-  local LATEST
-  LATEST=$(
-    gh api \
-      -H "Accept: application/vnd.github+json" \
-      -H "X-GitHub-Api-Version: 2022-11-28" \
-      "/repos/${REPO#github.com/}/${HINT%%/*}?per_page=100" 2>/dev/null ||
-      die "GitHub API call failed: $REPO"
-  ) || die "Failed to retrieve ${HINT%%/*} from GitHub"
-  LATEST=$(
-    echo "$LATEST" |
-      jq -r '.[].name' |
-      grep -E "^${HINT#*/}$" |
-      sed 's/^[^0-9]*//' |
-      sort -rV |
-      head -1
-  )
+  local LATEST=""
+  local PAGE=1
+  while [[ -z "$LATEST" ]]; do
+    LATEST=$(
+      gh api \
+        -H "Accept: application/vnd.github+json" \
+        -H "X-GitHub-Api-Version: 2022-11-28" \
+        "/repos/${REPO#github.com/}/${HINT%%/*}?page=$PAGE&per_page=100" 2>/dev/null ||
+        die "GitHub API call failed: $REPO"
+    ) || die "Failed to retrieve ${HINT%%/*} from GitHub"
+    LATEST=$(
+      echo "$LATEST" |
+        jq -r '.[].name' |
+        grep -E "^${HINT#*/}$" |
+        sed 's/^[^0-9]*//' |
+        sort -rV |
+        head -1
+    )
+    ((PAGE++))
+  done
 
   if dpkg --compare-versions "$LATEST" le "$CURRENT"; then
     echo "✅ $REPO: $LATEST"
