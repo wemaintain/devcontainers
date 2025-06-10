@@ -1,7 +1,7 @@
 {
   "id": "cdktf",
   "name": "cdktf",
-  "version": "0.1.0",
+  "version": "2025.6.10",
   "installsAfter": [
     "ghcr.io/lifadev/devcontainers/features/node20",
     "ghcr.io/lifadev/devcontainers/features/node23"
@@ -11,7 +11,7 @@
       "dependencies": [
         {
           "name": "cdktf",
-          "version": "0.20.12",
+          "version": "0.21.0",
           "hint": "tags/v?[0-9]+\\.[0-9]+(\\.[0-9]+)?",
           "repository": "github.com/hashicorp/terraform-cdk"
         }
