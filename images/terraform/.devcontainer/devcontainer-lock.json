@@ -24,6 +24,11 @@
       "version": "0.2.0",
       "resolved": "ghcr.io/wemaintain/devcontainers/features/terraform@sha256:ec27f5458598f8d41afcb21f0658fff52907d54465c81313fd692581fb6d5de0",
       "integrity": "sha256:ec27f5458598f8d41afcb21f0658fff52907d54465c81313fd692581fb6d5de0"
+    },
+    "ghcr.io/lifadev/devcontainers/features/aws2:0": {
+      "version": "2025.8.21",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/aws2@sha256:88b196d465984fbec18aa43d82e555e4a69cc1e6c3ca45cb1ddd1aaabcbd5e80",
+      "integrity": "sha256:abcca4a33caf5d97a62b57e499dcefc7c13d8a12411b353996af1227d8c73273"
     }
   }
 }
