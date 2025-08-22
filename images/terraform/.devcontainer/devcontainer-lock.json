@@ -1,24 +1,24 @@
 {
   "features": {
     "ghcr.io/lifadev/devcontainers/features/base:0": {
-      "version": "0.2.2",
-      "resolved": "ghcr.io/lifadev/devcontainers/features/base@sha256:f5a9d7dc48219bad37e92e2857f4e62c7fd36b94bb80382a52e676a8d44c7928",
-      "integrity": "sha256:f5a9d7dc48219bad37e92e2857f4e62c7fd36b94bb80382a52e676a8d44c7928"
+      "version": "2025.4.12",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/base@sha256:d083d0f6d166afaebcb771e9adfa8f957bf27f3449a383fc2655aded11de9846",
+      "integrity": "sha256:d083d0f6d166afaebcb771e9adfa8f957bf27f3449a383fc2655aded11de9846"
     },
     "ghcr.io/lifadev/devcontainers/features/bash:0": {
-      "version": "0.2.1",
-      "resolved": "ghcr.io/lifadev/devcontainers/features/bash@sha256:bbb92d74cf25d74e088670dcae231300a953475b39d7f5fbf07cd1b613198341",
-      "integrity": "sha256:bbb92d74cf25d74e088670dcae231300a953475b39d7f5fbf07cd1b613198341"
+      "version": "2025.8.5",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/bash@sha256:60d40712be7402e24462f0d4312fbf9d5b4a72549323a211a47795e062b7caa5",
+      "integrity": "sha256:60d40712be7402e24462f0d4312fbf9d5b4a72549323a211a47795e062b7caa5"
     },
     "ghcr.io/lifadev/devcontainers/features/developer:0": {
-      "version": "0.1.2",
-      "resolved": "ghcr.io/lifadev/devcontainers/features/developer@sha256:343a522561fd36025fa42cb56a273aa3d8be8e4cec7e8e12373cf4de5a31dcb8",
-      "integrity": "sha256:343a522561fd36025fa42cb56a273aa3d8be8e4cec7e8e12373cf4de5a31dcb8"
+      "version": "2025.4.12",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/developer@sha256:9fdc2762f0e4da0b0038f25e6a6b70c3e643d164002f90ba0957deb0c975330f",
+      "integrity": "sha256:9fdc2762f0e4da0b0038f25e6a6b70c3e643d164002f90ba0957deb0c975330f"
     },
     "ghcr.io/lifadev/devcontainers/features/starship:0": {
-      "version": "0.1.2",
-      "resolved": "ghcr.io/lifadev/devcontainers/features/starship@sha256:4131a20d929b16497f0367789b69d723955b02d345eb7c786e559af0b03478c7",
-      "integrity": "sha256:4131a20d929b16497f0367789b69d723955b02d345eb7c786e559af0b03478c7"
+      "version": "2025.4.28",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/starship@sha256:6566b0d9b94bb0567ea6022624f34f07b850fdbd97b29f45d6e0e44c5a969fef",
+      "integrity": "sha256:6566b0d9b94bb0567ea6022624f34f07b850fdbd97b29f45d6e0e44c5a969fef"
     },
     "ghcr.io/wemaintain/devcontainers/features/terraform:0": {
       "version": "0.2.0",
