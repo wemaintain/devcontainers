@@ -5,8 +5,8 @@
     "ghcr.io/lifadev/devcontainers/features/bash:0": {},
     "ghcr.io/lifadev/devcontainers/features/developer:0": {},
     "ghcr.io/lifadev/devcontainers/features/starship:0": {},
-    "ghcr.io/wemaintain/devcontainers/features/terraform:0": {},
-    "ghcr.io/lifadev/devcontainers/features/aws2:0": {}
+    "ghcr.io/lifadev/devcontainers/features/aws2:0": {},
+    "ghcr.io/wemaintain/devcontainers/features/terraform:0": {}
   },
   "remoteUser": "developer",
   "updateRemoteUserUID": true,
