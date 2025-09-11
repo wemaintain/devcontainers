@@ -1,25 +1,25 @@
 {
   "id": "terraform",
   "name": "terraform",
-  "version": "2025.9.4",
+  "version": "2025.9.11",
   "customizations": {
     "manifest": {
       "dependencies": [
         {
           "name": "terraform",
-          "version": "1.13.1",
+          "version": "1.13.2",
           "hint": "tags/v?1\\.[0-9]+(\\.[0-9]+)?",
           "repository": "github.com/hashicorp/terraform",
           "artifacts": [
             {
               "architecture": "amd64",
               "url": "https://releases.hashicorp.com/terraform/${VERSION}/terraform_${VERSION}_linux_amd64.zip",
-              "checksum": "4449e2ddc0dee283f0909dd603eaf98edeebaa950f4635cea94f2caf0ffacc5a"
+              "checksum": "b7554c87f36dbb2231d54c4277cbbddf58ae8ba916fa97461564836a2c4954c0"
             },
             {
               "architecture": "arm64",
               "url": "https://releases.hashicorp.com/terraform/${VERSION}/terraform_${VERSION}_linux_arm64.zip",
-              "checksum": "2bb0787c2da1ad94d6a495a848aad4e9b572adb02bfc7361afeee80f07fd90ac"
+              "checksum": "9b3814d36b5b22d9bc7a2856a676770c7b2597b8df025004054354226865ced6"
             }
           ]
         }
