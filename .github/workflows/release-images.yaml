@@ -3,11 +3,12 @@ name: Release images
 on:
   pull_request:
     types: [closed]
-    paths: ["images/**"]
+    paths: ["images/src/**"]
 
 jobs:
   setup:
     name: Setup
+    if: github.event.pull_request.merged == true
 
     permissions:
       contents: read
@@ -16,7 +17,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with: { fetch-depth: 0 }
 
       - name: Load config
@@ -29,7 +30,7 @@ jobs:
 
           images = [
             image.name
-            for image in Path("images").iterdir()
+            for image in Path("images/src").iterdir()
             if image.is_dir() and (image / ".devcontainer").is_dir()
           ]
 

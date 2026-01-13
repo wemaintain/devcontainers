@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with: { fetch-depth: 0 }
 
       - name: Install requirements
@@ -57,7 +57,7 @@ jobs:
       - name: Create pull request
         if: steps.update.outputs.skip == '0'
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.token }}
           FEATURE: ${{ inputs.feature }}
         run: |
           gh pr create \
