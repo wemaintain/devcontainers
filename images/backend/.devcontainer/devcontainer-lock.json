@@ -35,10 +35,10 @@
       "resolved": "ghcr.io/lifadev/devcontainers/features/starship@sha256:4131a20d929b16497f0367789b69d723955b02d345eb7c786e559af0b03478c7",
       "integrity": "sha256:4131a20d929b16497f0367789b69d723955b02d345eb7c786e559af0b03478c7"
     },
-    "ghcr.io/wemaintain/devcontainers/features/cdktf:0": {
-      "version": "0.1.0",
-      "resolved": "ghcr.io/wemaintain/devcontainers/features/cdktf@sha256:8db72cfbc4ab69eaaa417f4685e0bd19f5ad8166a141eab607f6e525b89ce122",
-      "integrity": "sha256:8db72cfbc4ab69eaaa417f4685e0bd19f5ad8166a141eab607f6e525b89ce122"
+    "ghcr.io/wemaintain/devcontainers/features/cdktf:2025": {
+      "version": "2025.6.5",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/cdktf@sha256:24a721bebc4a7b19c5778ae3acb5047fe02a614dc5cbe575c07cd63e7be08831",
+      "integrity": "sha256:24a721bebc4a7b19c5778ae3acb5047fe02a614dc5cbe575c07cd63e7be08831"
     },
     "ghcr.io/wemaintain/devcontainers/features/nx:0": {
       "version": "0.2.0",
