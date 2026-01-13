@@ -4,7 +4,7 @@
   "version": "2026.1.13",
   "installsAfter": [
     "ghcr.io/lifadev/devcontainers/features/node20",
-    "ghcr.io/lifadev/devcontainers/features/node23"
+    "ghcr.io/lifadev/devcontainers/features/node24"
   ],
   "customizations": {
     "manifest": {

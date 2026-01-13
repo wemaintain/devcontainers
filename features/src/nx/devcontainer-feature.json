@@ -4,7 +4,7 @@
   "version": "0.2.0",
   "installsAfter": [
     "ghcr.io/lifadev/devcontainers/features/node20",
-    "ghcr.io/lifadev/devcontainers/features/node23"
+    "ghcr.io/lifadev/devcontainers/features/node24"
   ],
   "customizations": {
     "vscode": {
