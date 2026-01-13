@@ -10,8 +10,7 @@
     "ghcr.io/lifadev/devcontainers/features/starship": {},
     "ghcr.io/wemaintain/devcontainers/features/cdktf": {},
     "ghcr.io/wemaintain/devcontainers/features/nx": {},
-    "ghcr.io/wemaintain/devcontainers/features/terraform": {},
-    "ghcr.io/devcontainers/features/docker-outside-of-docker": {}
+    "ghcr.io/wemaintain/devcontainers/features/terraform": {}
   },
   "remoteUser": "developer",
   "updateRemoteUserUID": true,
