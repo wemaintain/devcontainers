@@ -3,6 +3,7 @@
 FEATURE="$1"
 SCRIPTDIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 CONFIG=$SCRIPTDIR/../src/$FEATURE/devcontainer-feature.json
+SCENARIOS=$SCRIPTDIR/../test/$FEATURE/scenarios.json
 
 DEBUG=${DEBUG:-0}
 export DEBUG
@@ -24,6 +25,21 @@ die() {
   exit 1
 }
 export -f die
+
+update_image() {
+  CURRENT=$(grep -Poh 'debian:[^"]+' "$SCENARIOS" | uniq)
+  LATEST=$(
+    curl -fLsS "https://hub.docker.com/v2/repositories/library/debian" |
+      grep -Poh "\[[^\]]+\`latest\`\]" |
+      sed 's/`/"/g' | jq -r '"debian:" + .[1]'
+  )
+  if [ "$CURRENT" != "$LATEST" ]; then
+    echo "🐳 $CURRENT -> $LATEST"
+    sed -i -e "s/$CURRENT/$LATEST/g" "$SCENARIOS"
+  else
+    echo "🐳 $CURRENT"
+  fi
+}
 
 update_artifact() {
   set -eu
@@ -90,22 +106,26 @@ update_dependency() {
   [[ "$REPO" == github.com/* ]] || die "Unsupported repository: $REPO"
   [[ "$HINT" == tags/* || "$HINT" == releases/* ]] || die "Unsupported hint: $HINT"
 
-  local LATEST
-  LATEST=$(
-    gh api \
-      -H "Accept: application/vnd.github+json" \
-      -H "X-GitHub-Api-Version: 2022-11-28" \
-      "/repos/${REPO#github.com/}/${HINT%%/*}?per_page=100" 2>/dev/null ||
-      die "GitHub API call failed: $REPO"
-  ) || die "Failed to retrieve ${HINT%%/*} from GitHub"
-  LATEST=$(
-    echo "$LATEST" |
-      jq -r '.[].name' |
-      grep -E "^${HINT#*/}$" |
-      sed 's/^[^0-9]*//' |
-      sort -rV |
-      head -1
-  )
+  local LATEST=""
+  local PAGE=1
+  while [[ -z "$LATEST" ]]; do
+    LATEST=$(
+      gh api \
+        -H "Accept: application/vnd.github+json" \
+        -H "X-GitHub-Api-Version: 2022-11-28" \
+        "/repos/${REPO#github.com/}/${HINT%%/*}?page=$PAGE&per_page=100" 2>/dev/null ||
+        die "GitHub API call failed: $REPO"
+    ) || die "Failed to retrieve ${HINT%%/*} from GitHub"
+    LATEST=$(
+      echo "$LATEST" |
+        jq -r '.[].name' |
+        grep -E "^${HINT#*/}$" |
+        sed 's/^[^0-9]*//' |
+        sort -rV |
+        head -1
+    )
+    ((PAGE++))
+  done
 
   if dpkg --compare-versions "$LATEST" le "$CURRENT"; then
     echo "✅ $REPO: $LATEST"
@@ -148,6 +168,8 @@ update_dependency() {
   echo "✅ $REPO: $LATEST"
 }
 export -f update_dependency
+
+update_image
 
 i=0
 INDEX=$TMPDIR/dependencies
