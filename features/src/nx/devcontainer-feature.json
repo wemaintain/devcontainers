@@ -9,6 +9,16 @@
   "customizations": {
     "vscode": {
       "extensions": ["nrwl.angular-console"]
+    },
+    "manifest": {
+      "dependencies": [
+        {
+          "name": "nx",
+          "version": "20.4.6",
+          "hint": "tags/v?[0-9]+\\.[0-9]+(\\.[0-9]+)?",
+          "repository": "github.com/nrwl/nx"
+        }
+      ]
     }
   }
 }

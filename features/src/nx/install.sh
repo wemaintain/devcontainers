@@ -2,18 +2,8 @@
 
 set -eux
 
-if [ "$UID" -ne 0 ]; then
-  echo -e "(!) User must be root: $UID"
-  exit 1
-fi
+# shellcheck source=../../lib/install.sh
+source dev-container-features-install-lib
 
-ARCH="$(dpkg --print-architecture)"
-if [ "$ARCH" != 'amd64' ] && [ "$ARCH" != 'arm64' ]; then
-  echo "(!) Unsupported architecture: $ARCH"
-  exit 1
-fi
-
-#---
-
-#? https://github.com/nrwl/nx/tags
-npm install -g nx@20.4.6
+npm install -g \
+  "nx@$(dc_version nx)"
