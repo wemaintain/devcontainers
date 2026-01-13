@@ -1,17 +1,16 @@
 {
   "image": "debian:bookworm-20250224",
   "features": {
-    "ghcr.io/lifadev/devcontainers/features/aws2:2026": {},
-    "ghcr.io/lifadev/devcontainers/features/base:2025": {},
-    "ghcr.io/lifadev/devcontainers/features/bash:2025": {},
-    "ghcr.io/lifadev/devcontainers/features/cdk:2026": {},
-    "ghcr.io/lifadev/devcontainers/features/developer:2025": {},
-    "ghcr.io/lifadev/devcontainers/features/node24:2025": {},
-    "ghcr.io/lifadev/devcontainers/features/starship:2025": {},
-    "ghcr.io/wemaintain/devcontainers/features/cdktf:2025": {},
-    "ghcr.io/wemaintain/devcontainers/features/nx:0": {},
-    "ghcr.io/wemaintain/devcontainers/features/terraform:2026": {},
-    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    "ghcr.io/lifadev/devcontainers/features/aws2": {},
+    "ghcr.io/lifadev/devcontainers/features/base": {},
+    "ghcr.io/lifadev/devcontainers/features/bash": {},
+    "ghcr.io/lifadev/devcontainers/features/cdk": {},
+    "ghcr.io/lifadev/devcontainers/features/developer": {},
+    "ghcr.io/lifadev/devcontainers/features/node24": {},
+    "ghcr.io/lifadev/devcontainers/features/starship": {},
+    "ghcr.io/wemaintain/devcontainers/features/cdktf": {},
+    "ghcr.io/wemaintain/devcontainers/features/nx": {},
+    "ghcr.io/wemaintain/devcontainers/features/terraform": {}
   },
   "remoteUser": "developer",
   "updateRemoteUserUID": true,
@@ -22,7 +21,7 @@
   "customizations": {
     "manifest": {
       "name": "backend",
-      "version": "2026.1.13"
+      "version": "2026.1.131"
     },
     "vscode": {
       "settings": {

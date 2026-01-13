@@ -1,0 +1,29 @@
+{
+  "image": "debian:bookworm-20250224",
+  "features": {
+    "ghcr.io/lifadev/devcontainers/features/base": {},
+    "ghcr.io/lifadev/devcontainers/features/bash": {},
+    "ghcr.io/lifadev/devcontainers/features/developer": {},
+    "ghcr.io/lifadev/devcontainers/features/starship": {},
+    "ghcr.io/lifadev/devcontainers/features/node20": {},
+    "ghcr.io/wemaintain/devcontainers/features/nx": {},
+    "ghcr.io/wemaintain/devcontainers/features/angular": {}
+  },
+  "remoteUser": "developer",
+  "updateRemoteUserUID": true,
+  "remoteEnv": {
+    "PATH": "/opt/bin:${containerEnv:PATH}"
+  },
+  "postCreateCommand": "corepack enable",
+  "customizations": {
+    "manifest": {
+      "name": "angular",
+      "version": "0.0.3"
+    },
+    "vscode": {
+      "settings": {
+        "extensions.ignoreRecommendations": true
+      }
+    }
+  }
+}

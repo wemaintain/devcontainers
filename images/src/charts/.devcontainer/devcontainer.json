@@ -1,0 +1,27 @@
+{
+  "image": "debian:bookworm-20250224",
+  "features": {
+    "ghcr.io/lifadev/devcontainers/features/base": {},
+    "ghcr.io/lifadev/devcontainers/features/bash": {},
+    "ghcr.io/lifadev/devcontainers/features/developer": {},
+    "ghcr.io/wemaintain/devcontainers/features/helm": {},
+    "ghcr.io/wemaintain/devcontainers/features/kube": {},
+    "ghcr.io/lifadev/devcontainers/features/starship": {}
+  },
+  "remoteUser": "developer",
+  "updateRemoteUserUID": true,
+  "remoteEnv": {
+    "PATH": "/opt/bin:${containerEnv:PATH}"
+  },
+  "customizations": {
+    "manifest": {
+      "name": "charts",
+      "version": "0.1.2"
+    },
+    "vscode": {
+      "settings": {
+        "extensions.ignoreRecommendations": true
+      }
+    }
+  }
+}

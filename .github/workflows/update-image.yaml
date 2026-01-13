@@ -1,9 +1,9 @@
-name: Update feature
+name: Update image
 
 on:
   workflow_call:
     inputs:
-      feature: { type: string, required: true }
+      image: { type: string, required: true }
     secrets:
       token: { required: true }
 
@@ -25,32 +25,32 @@ jobs:
       - name: Install requirements
         run: |
           sudo apt-get update
-          sudo apt-get -y install moreutils parallel uuid
+          sudo apt-get -y install moreutils uuid
 
       - name: Configure Git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Update feature
+      - name: Update image
         id: update
         env:
           GH_TOKEN: ${{ github.token }}
-          FEATURE: ${{ inputs.feature }}
+          IMAGE: ${{ inputs.image }}
         run: |
           set -euo pipefail
 
-          git checkout -b "feature/$FEATURE/$(uuid -v4 | cut -d- -f2)"
+          git checkout -b "image/$IMAGE/$(uuid -v4 | cut -d- -f2)"
 
-          bash ./features/bin/update.sh "$FEATURE"
-          npx -y prettier -w "features/src/$FEATURE"
+          bash ./images/bin/update.sh "$IMAGE"
+          npx -y prettier -w "images/src/$IMAGE"
 
           if git diff --quiet && git diff --cached --quiet; then
             echo "skip=1" >>$GITHUB_OUTPUT
             exit 0
           fi
 
-          git commit -am "feature/$FEATURE: update dependencies"
+          git commit -am "image/$IMAGE: update dependencies"
           git push -u origin HEAD
           echo "skip=0" >>$GITHUB_OUTPUT
 
@@ -58,8 +58,8 @@ jobs:
         if: steps.update.outputs.skip == '0'
         env:
           GH_TOKEN: ${{ secrets.token }}
-          FEATURE: ${{ inputs.feature }}
+          IMAGE: ${{ inputs.image }}
         run: |
           gh pr create \
-            --title "feature/$FEATURE: update dependencies" --body "" \
+            --title "image/$IMAGE: update dependencies" --body "" \
             --base main
