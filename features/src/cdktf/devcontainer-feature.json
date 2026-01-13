@@ -1,7 +1,7 @@
 {
   "id": "cdktf",
   "name": "cdktf",
-  "version": "2025.6.5",
+  "version": "2025.6.6",
   "installsAfter": [
     "ghcr.io/lifadev/devcontainers/features/node20",
     "ghcr.io/lifadev/devcontainers/features/node24"

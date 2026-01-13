@@ -1,7 +1,7 @@
 {
   "id": "nx",
   "name": "nx",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "installsAfter": [
     "ghcr.io/lifadev/devcontainers/features/node20",
     "ghcr.io/lifadev/devcontainers/features/node24"
