@@ -1,16 +1,17 @@
 {
   "image": "debian:bookworm-20250224",
   "features": {
-    "ghcr.io/lifadev/devcontainers/features/aws2:2025": {},
+    "ghcr.io/lifadev/devcontainers/features/aws2:2026": {},
     "ghcr.io/lifadev/devcontainers/features/base:2025": {},
     "ghcr.io/lifadev/devcontainers/features/bash:2025": {},
-    "ghcr.io/lifadev/devcontainers/features/cdk:2025": {},
+    "ghcr.io/lifadev/devcontainers/features/cdk:2026": {},
     "ghcr.io/lifadev/devcontainers/features/developer:2025": {},
-    "ghcr.io/lifadev/devcontainers/features/node20:2025": {},
+    "ghcr.io/lifadev/devcontainers/features/node24:2025": {},
     "ghcr.io/lifadev/devcontainers/features/starship:2025": {},
-    "ghcr.io/wemaintain/devcontainers/features/cdktf:0": {},
+    "ghcr.io/wemaintain/devcontainers/features/cdktf:2025": {},
     "ghcr.io/wemaintain/devcontainers/features/nx:0": {},
-    "ghcr.io/wemaintain/devcontainers/features/terraform:0": {}
+    "ghcr.io/wemaintain/devcontainers/features/terraform:2026": {},
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
   },
   "remoteUser": "developer",
   "updateRemoteUserUID": true,
@@ -21,13 +22,58 @@
   "customizations": {
     "manifest": {
       "name": "backend",
-      "version": "0.3.3"
+      "version": "2026.1.13"
     },
     "vscode": {
       "settings": {
-        "extensions.ignoreRecommendations": true
+        "extensions.ignoreRecommendations": true,
+        "files.watcherExclude": {
+          "**/.git": true,
+          "**/.nx": true,
+          "**/dist": true,
+          "**/node_modules": true
+        },
+        "[javascript]": {
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          },
+          "editor.defaultFormatter": "biomejs.biome"
+        },
+        "[javascriptreact]": {
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          },
+          "editor.defaultFormatter": "biomejs.biome"
+        },
+        "[json]": {
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          },
+          "editor.defaultFormatter": "biomejs.biome"
+        },
+        "[typescript]": {
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          },
+          "editor.defaultFormatter": "biomejs.biome"
+        },
+        "[typescriptreact]": {
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          },
+          "editor.defaultFormatter": "biomejs.biome"
+        },
+        "editor.codeActionsOnSave": {
+          "source.fixAll.biome": "explicit",
+          "source.organizeImports.biome": "explicit"
+        }
       },
-      "extensions": ["graphql.vscode-graphql-syntax", "graphql.vscode-graphql"]
+      "extensions": [
+        "graphql.vscode-graphql-syntax",
+        "graphql.vscode-graphql",
+        "biomejs.biome",
+        "TypeScriptTeam.native-preview"
+      ]
     }
   }
 }
