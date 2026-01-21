@@ -21,7 +21,7 @@
   "customizations": {
     "manifest": {
       "name": "backend",
-      "version": "2026.1.210"
+      "version": "2026.1.22"
     },
     "vscode": {
       "settings": {
@@ -62,8 +62,7 @@
             "source.organizeImports": "explicit"
           },
           "editor.defaultFormatter": "esbenp.prettier-vscode"
-        },
-        "editor.codeActionsOnSave": {}
+        }
       },
       "extensions": [
         "graphql.vscode-graphql-syntax",

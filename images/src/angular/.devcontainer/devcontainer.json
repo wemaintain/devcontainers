@@ -1,5 +1,5 @@
 {
-  "image": "debian:bookworm-20250224",
+  "image": "debian:trixie-20260112",
   "features": {
     "ghcr.io/lifadev/devcontainers/features/base": {},
     "ghcr.io/lifadev/devcontainers/features/bash": {},
@@ -14,16 +14,59 @@
   "remoteEnv": {
     "PATH": "/opt/bin:${containerEnv:PATH}"
   },
-  "postCreateCommand": "corepack enable",
+  "postCreateCommand": "sudo env PATH=$PATH corepack enable",
   "customizations": {
     "manifest": {
       "name": "angular",
-      "version": "0.0.3"
+      "version": "2026.1.22"
     },
     "vscode": {
       "settings": {
-        "extensions.ignoreRecommendations": true
-      }
+        "editor.formatOnSave": true,
+        "extensions.ignoreRecommendations": true,
+        "files.watcherExclude": {
+          "**/.git": true,
+          "**/.nx": true,
+          "**/dist": true,
+          "**/node_modules": true
+        },
+        "[javascript]": {
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          },
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[javascriptreact]": {
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          },
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[json]": {
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          },
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[typescript]": {
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          },
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[typescriptreact]": {
+          "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+          },
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        }
+      },
+      "extensions": [
+        "graphql.vscode-graphql-syntax",
+        "graphql.vscode-graphql",
+        "esbenp.prettier-vscode",
+        "TypeScriptTeam.native-preview"
+      ]
     }
   }
 }
