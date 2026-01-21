@@ -63,8 +63,7 @@
           },
           "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
-        "editor.codeActionsOnSave": {
-        }
+        "editor.codeActionsOnSave": {}
       },
       "extensions": [
         "graphql.vscode-graphql-syntax",
