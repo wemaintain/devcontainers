@@ -1,5 +1,5 @@
 {
-  "image": "debian:bookworm-20250224",
+  "image": "debian:trixie-20260112",
   "features": {
     "ghcr.io/lifadev/devcontainers/features/aws2": {},
     "ghcr.io/lifadev/devcontainers/features/base": {},
@@ -21,7 +21,7 @@
   "customizations": {
     "manifest": {
       "name": "backend",
-      "version": "2026.1.131"
+      "version": "2026.1.21"
     },
     "vscode": {
       "settings": {
@@ -36,41 +36,39 @@
           "editor.codeActionsOnSave": {
             "source.organizeImports": "explicit"
           },
-          "editor.defaultFormatter": "biomejs.biome"
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
         "[javascriptreact]": {
           "editor.codeActionsOnSave": {
             "source.organizeImports": "explicit"
           },
-          "editor.defaultFormatter": "biomejs.biome"
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
         "[json]": {
           "editor.codeActionsOnSave": {
             "source.organizeImports": "explicit"
           },
-          "editor.defaultFormatter": "biomejs.biome"
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
         "[typescript]": {
           "editor.codeActionsOnSave": {
             "source.organizeImports": "explicit"
           },
-          "editor.defaultFormatter": "biomejs.biome"
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
         "[typescriptreact]": {
           "editor.codeActionsOnSave": {
             "source.organizeImports": "explicit"
           },
-          "editor.defaultFormatter": "biomejs.biome"
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
         "editor.codeActionsOnSave": {
-          "source.fixAll.biome": "explicit",
-          "source.organizeImports.biome": "explicit"
         }
       },
       "extensions": [
         "graphql.vscode-graphql-syntax",
         "graphql.vscode-graphql",
-        "biomejs.biome",
+        "esbenp.prettier-vscode",
         "TypeScriptTeam.native-preview"
       ]
     }
