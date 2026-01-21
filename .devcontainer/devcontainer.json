@@ -1,5 +1,18 @@
 {
-  "image": "ghcr.io/lifadev/devcontainers/devcontainer:2025.4.12",
+  "image": "ghcr.io/lifadev/devcontainers/devcontainer:2026.1.17",
   "workspaceFolder": "/workspace",
-  "workspaceMount": "type=bind,source=${localWorkspaceFolder},target=/workspace,consistency=cached"
+  "workspaceMount": "type=bind,source=${localWorkspaceFolder},target=/workspace,consistency=cached",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "[json]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.formatOnSave": true
+        }
+      }
+    }
+  }
 }

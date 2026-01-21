@@ -25,6 +25,7 @@
     },
     "vscode": {
       "settings": {
+        "editor.formatOnSave": true,
         "extensions.ignoreRecommendations": true,
         "files.watcherExclude": {
           "**/.git": true,
