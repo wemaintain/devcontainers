@@ -17,7 +17,7 @@
   "remoteEnv": {
     "PATH": "/opt/bin:${containerEnv:PATH}"
   },
-  "postCreateCommand": "corepack enable",
+  "postCreateCommand": "sudo env PATH=$PATH corepack enable",
   "customizations": {
     "manifest": {
       "name": "backend",
