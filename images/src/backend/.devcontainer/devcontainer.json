@@ -21,7 +21,7 @@
   "customizations": {
     "manifest": {
       "name": "backend",
-      "version": "2026.1.21"
+      "version": "2026.1.210"
     },
     "vscode": {
       "settings": {
