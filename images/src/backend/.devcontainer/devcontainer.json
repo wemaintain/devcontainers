@@ -17,11 +17,11 @@
   "remoteEnv": {
     "PATH": "/opt/bin:${containerEnv:PATH}"
   },
-  "postCreateCommand": "corepack enable",
+  "postCreateCommand": "sudo env PATH=$PATH corepack enable",
   "customizations": {
     "manifest": {
       "name": "backend",
-      "version": "2026.1.21"
+      "version": "2026.1.210"
     },
     "vscode": {
       "settings": {
