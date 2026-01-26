@@ -17,11 +17,11 @@
   "remoteEnv": {
     "PATH": "/opt/bin:${containerEnv:PATH}"
   },
-  "postCreateCommand": "sudo env PATH=$PATH CI=true corepack enable && mkdir -p ~/.aws && wget -q https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem -O ~/.aws/rds-ca-cert.pem && cp ${containerWorkspaceFolder}/.devcontainer/.bash_aliases ~/.bash_aliases",
+  "postCreateCommand": "sudo env PATH=$PATH CI=true corepack enable && mkdir -p ~/.aws && wget -q https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem -O ~/.aws/rds-ca-cert.pem && printf \"alias withPg='DB_HOST=wemaintain-pgsql-staging.cdtgkxemrw9j.eu-west-1.rds.amazonaws.com DB_USER=backend_dev DB_PASSWORD=\\$(aws rds --profile prod:back generate-db-auth-token --hostname wemaintain-pgsql-staging.cdtgkxemrw9j.eu-west-1.rds.amazonaws.com --port 5432 --region eu-west-1 --username backend_dev) DB_SSL_CA=\\$HOME/.aws/rds-ca-cert.pem'\\n\" > ~/.bash_aliases",
   "customizations": {
     "manifest": {
       "name": "backend",
-      "version": "2026.1.263"
+      "version": "2026.1.264"
     },
     "vscode": {
       "settings": {
