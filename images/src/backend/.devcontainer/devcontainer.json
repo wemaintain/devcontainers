@@ -17,11 +17,11 @@
   "remoteEnv": {
     "PATH": "/opt/bin:${containerEnv:PATH}"
   },
-  "postCreateCommand": "sudo env PATH=$PATH CI=true corepack enable && cp .devcontainer/.bash_aliases ~/.bash_aliases",
+  "postCreateCommand": "sudo env PATH=$PATH CI=true corepack enable && mkdir -p ~/.aws && wget -q https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem -O ~/.aws/rds-ca-cert.pem && cp .devcontainer/.bash_aliases ~/.bash_aliases",
   "customizations": {
     "manifest": {
       "name": "backend",
-      "version": "2026.1.261"
+      "version": "2026.1.262"
     },
     "vscode": {
       "settings": {
