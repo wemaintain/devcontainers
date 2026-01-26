@@ -1,0 +1,7 @@
+{
+  "id": "postgres-rds",
+  "version": "1.0.0",
+  "name": "PostgreSQL RDS Setup",
+  "description": "Sets up SSL certificate and aliases for RDS connections",
+  "options": {}
+}
