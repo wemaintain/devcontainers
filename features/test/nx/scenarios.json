@@ -1,6 +1,6 @@
 {
   "node20": {
-    "image": "debian:trixie-20260112",
+    "image": "debian:trixie-20260202",
     "features": {
       "ghcr.io/lifadev/devcontainers/features/node20:2025": {},
       "nx": {}
@@ -11,7 +11,7 @@
     ]
   },
   "node24": {
-    "image": "debian:trixie-20260112",
+    "image": "debian:trixie-20260202",
     "features": {
       "ghcr.io/lifadev/devcontainers/features/node24:2025": {},
       "nx": {}

@@ -1,7 +1,7 @@
 {
   "id": "nx",
   "name": "nx",
-  "version": "2026.1.27",
+  "version": "2026.2.3",
   "installsAfter": [
     "ghcr.io/lifadev/devcontainers/features/node20",
     "ghcr.io/lifadev/devcontainers/features/node24"
@@ -14,7 +14,7 @@
       "dependencies": [
         {
           "name": "nx",
-          "version": "22.4.2",
+          "version": "22.4.5",
           "hint": "tags/v?[0-9]+\\.[0-9]+(\\.[0-9]+)?",
           "repository": "github.com/nrwl/nx"
         }
