@@ -35,7 +35,7 @@ jobs:
       - name: Update image
         id: update
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.token }}
           IMAGE: ${{ inputs.image }}
         run: |
           set -euo pipefail
