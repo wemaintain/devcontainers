@@ -25,6 +25,7 @@ jq \
   "$CONFIG" | sponge "$CONFIG"
 
 rm -f "$LOCK"
+echo "$GH_TOKEN" | docker login ghcr.io -u x-access-token --password-stdin
 npx -y @devcontainers/cli upgrade --workspace-folder "$WORKSPACE"
 npx -y prettier -w "$WORKSPACE"
 
