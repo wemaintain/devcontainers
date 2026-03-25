@@ -26,9 +26,9 @@
       "integrity": "sha256:42b087359e4118f75f2d7399bdc7e5866d8db0a4f14e82bd67f93e43d6536b81"
     },
     "ghcr.io/wemaintain/devcontainers/features/terraform": {
-      "version": "2026.3.24",
-      "resolved": "ghcr.io/wemaintain/devcontainers/features/terraform@sha256:76d852698985f1ac93f85906594bdd6bf0bd3d4034288fe572aade787d1c2b25",
-      "integrity": "sha256:76d852698985f1ac93f85906594bdd6bf0bd3d4034288fe572aade787d1c2b25"
+      "version": "2026.3.25",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/terraform@sha256:c40213b0ed734d6163d04a51b33b09012030edf7eb93cde9a41076f96d72c24e",
+      "integrity": "sha256:c40213b0ed734d6163d04a51b33b09012030edf7eb93cde9a41076f96d72c24e"
     }
   }
 }
