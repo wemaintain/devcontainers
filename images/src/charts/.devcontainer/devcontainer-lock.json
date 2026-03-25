@@ -26,14 +26,14 @@
       "integrity": "sha256:42b087359e4118f75f2d7399bdc7e5866d8db0a4f14e82bd67f93e43d6536b81"
     },
     "ghcr.io/wemaintain/devcontainers/features/helm": {
-      "version": "0.1.0",
-      "resolved": "ghcr.io/wemaintain/devcontainers/features/helm@sha256:63aecec2bedf5651da290f6c33db4ed6a466f7d172bae7d1481343cc4b83fbe7",
-      "integrity": "sha256:63aecec2bedf5651da290f6c33db4ed6a466f7d172bae7d1481343cc4b83fbe7"
+      "version": "2026.3.25",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/helm@sha256:4abca278cf1554f872f4a2a314b2d3cd4c5c41df67f73e412b35dfa0aeaa9e43",
+      "integrity": "sha256:4abca278cf1554f872f4a2a314b2d3cd4c5c41df67f73e412b35dfa0aeaa9e43"
     },
     "ghcr.io/wemaintain/devcontainers/features/kube": {
-      "version": "0.1.0",
-      "resolved": "ghcr.io/wemaintain/devcontainers/features/kube@sha256:73ddcd8e4d0fad6325bfbd76512651a416fa7e904ccc9c6924a80ed2e924a6e8",
-      "integrity": "sha256:73ddcd8e4d0fad6325bfbd76512651a416fa7e904ccc9c6924a80ed2e924a6e8"
+      "version": "2026.3.25",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/kube@sha256:1f445d72fbd83dce631ce048e9cc78c2194cf99b1f417e7a471b5f64b15c3048",
+      "integrity": "sha256:1f445d72fbd83dce631ce048e9cc78c2194cf99b1f417e7a471b5f64b15c3048"
     }
   }
 }
