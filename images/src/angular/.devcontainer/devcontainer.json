@@ -4,6 +4,7 @@
     "ghcr.io/lifadev/devcontainers/features/base": {},
     "ghcr.io/lifadev/devcontainers/features/bash": {},
     "ghcr.io/lifadev/devcontainers/features/developer": {},
+    "ghcr.io/wemaintain/devcontainers/features/git": {},
     "ghcr.io/lifadev/devcontainers/features/starship": {},
     "ghcr.io/lifadev/devcontainers/features/node24": {},
     "ghcr.io/wemaintain/devcontainers/features/nx": {},
@@ -18,7 +19,7 @@
   "customizations": {
     "manifest": {
       "name": "angular",
-      "version": "2026.4.14-1"
+      "version": "2026.4.14-2"
     },
     "vscode": {
       "settings": {

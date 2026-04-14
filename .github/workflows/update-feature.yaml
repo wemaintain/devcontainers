@@ -139,12 +139,12 @@ jobs:
           } >"$BODY_FILE"
 
           PR_URL=$(
-            gh pr create \
+            GH_TOKEN=${{ github.token }}  gh pr create \
               --title "$PR_TITLE" \
               --body-file "$BODY_FILE" \
               --base main
           )
 
-          GH_TOKEN=${{ github.token }} gh pr review --approve "$PR_URL"
+          gh pr review --approve "$PR_URL"
 
           gh pr merge --auto --squash "$PR_URL"
