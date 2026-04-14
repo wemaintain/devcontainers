@@ -63,6 +63,7 @@ jobs:
           set -euo pipefail
 
           CONFIG="features/src/$FEATURE/devcontainer-feature.json"
+          PREV_CONFIG=$(git show "origin/main:$CONFIG" 2>/dev/null || echo '{}')
 
           DEPS_KEY=$(
             jq -r \
@@ -73,15 +74,23 @@ jobs:
               "$CONFIG"
           )
           DEPS_BULLETS=$(
-            jq -r \
-              '(.customizations.manifest.dependencies // [])
+            jq -rn \
+              --argjson prev "$PREV_CONFIG" \
+              --argjson curr "$(cat "$CONFIG")" \
+              '($curr.customizations.manifest.dependencies // []) as $new |
+              ($prev.customizations.manifest.dependencies // []) as $old |
+              ($old | map({key: .name, value: .version}) | from_entries) as $oldmap |
+              $new
+              | map({name: .name, old: ($oldmap[.name] // "n/a"), new: .version})
+              | map(select(.old != .new))
               | sort_by(.name)
-              | map("- \(.name): \(.version)")
-              | join("\n")' \
-              "$CONFIG"
+              | if length == 0 then
+                  "- none"
+                else
+                  map("- \(.name): \(.old) ➡️ \(.new)") | join("\n")
+                end'
           )
 
-          PREV_CONFIG=$(git show "origin/main:$CONFIG" 2>/dev/null || echo '{}')
           FIRST_CHANGED=$(
             jq -rn \
               --argjson prev "$PREV_CONFIG" \
@@ -89,8 +98,12 @@ jobs:
               '($curr.customizations.manifest.dependencies // []) as $new |
               ($prev.customizations.manifest.dependencies // []) as $old |
               ($old | map({key: .name, value: .version}) | from_entries) as $oldmap |
-              $new | map(select($oldmap[.name] != .version)) | first |
-              if . then "\(.name) \(.version)" else empty end'
+              $new
+              | map({name: .name, old: ($oldmap[.name] // "n/a"), new: .version})
+              | map(select(.old != .new))
+              | sort_by(.name)
+              | first
+              | if . then "\(.name) \(.old) ➡️ \(.new)" else empty end'
           )
 
           if [[ -n "$FIRST_CHANGED" ]]; then

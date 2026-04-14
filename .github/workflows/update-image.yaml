@@ -63,6 +63,7 @@ jobs:
           set -euo pipefail
 
           LOCK="images/src/$IMAGE/.devcontainer/devcontainer-lock.json"
+          PREV_LOCK=$(git show "origin/main:$LOCK" 2>/dev/null || echo '{}')
 
           FEAT_KEY=$(
             jq -r \
@@ -78,28 +79,34 @@ jobs:
               "$LOCK"
           )
           FEAT_BULLETS=$(
-            jq -r \
-              '(.features // {})
-              | to_entries
-              | map({
-                  name: (.key | split("/") | last),
-                  version: .value.version
-                })
+            jq -rn \
+              --argjson prev "$PREV_LOCK" \
+              --argjson curr "$(cat "$LOCK")" \
+              '(($curr.features // {}) | to_entries | map({name: (.key | split("/") | last), version: .value.version})) as $new |
+              (($prev.features // {}) | to_entries | map({name: (.key | split("/") | last), version: .value.version}) | map({key: .name, value: .version}) | from_entries) as $oldmap |
+              $new
+              | map({name: .name, old: ($oldmap[.name] // "n/a"), new: .version})
+              | map(select(.old != .new))
               | sort_by(.name)
-              | map("- \(.name): \(.version)")
-              | join("\n")' \
-              "$LOCK"
+              | if length == 0 then
+                  "- none"
+                else
+                  map("- \(.name): \(.old) ➡️ \(.new)") | join("\n")
+                end'
           )
 
-          PREV_LOCK=$(git show "origin/main:$LOCK" 2>/dev/null || echo '{}')
           FIRST_CHANGED=$(
             jq -rn \
               --argjson prev "$PREV_LOCK" \
               --argjson curr "$(cat "$LOCK")" \
               '(($curr.features // {}) | to_entries | map({name: (.key | split("/") | last), version: .value.version})) as $new |
               (($prev.features // {}) | to_entries | map({name: (.key | split("/") | last), version: .value.version}) | map({key: .name, value: .version}) | from_entries) as $oldmap |
-              $new | map(select($oldmap[.name] != .version)) | sort_by(.name) | first |
-              if . then "\(.name) \(.version)" else empty end'
+              $new
+              | map({name: .name, old: ($oldmap[.name] // "n/a"), new: .version})
+              | map(select(.old != .new))
+              | sort_by(.name)
+              | first
+              | if . then "\(.name) \(.old) ➡️ \(.new)" else empty end'
           )
 
           if [[ -n "$FIRST_CHANGED" ]]; then
