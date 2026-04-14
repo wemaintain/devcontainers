@@ -1,7 +1,7 @@
 {
   "id": "git",
   "name": "git",
-  "version": "2026.4.14-1",
+  "version": "2026.4.14-2",
   "customizations": {
     "manifest": {
       "dependencies": [
