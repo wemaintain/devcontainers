@@ -6,6 +6,7 @@
     "ghcr.io/lifadev/devcontainers/features/bash": {},
     "ghcr.io/lifadev/devcontainers/features/cdk": {},
     "ghcr.io/lifadev/devcontainers/features/developer": {},
+    "ghcr.io/wemaintain/devcontainers/features/git": {},
     "ghcr.io/lifadev/devcontainers/features/node24": {},
     "ghcr.io/lifadev/devcontainers/features/starship": {},
     "ghcr.io/wemaintain/devcontainers/features/cdktf": {},

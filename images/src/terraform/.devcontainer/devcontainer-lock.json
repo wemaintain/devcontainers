@@ -25,6 +25,11 @@
       "resolved": "ghcr.io/lifadev/devcontainers/features/starship@sha256:42b087359e4118f75f2d7399bdc7e5866d8db0a4f14e82bd67f93e43d6536b81",
       "integrity": "sha256:42b087359e4118f75f2d7399bdc7e5866d8db0a4f14e82bd67f93e43d6536b81"
     },
+    "ghcr.io/wemaintain/devcontainers/features/git": {
+      "version": "2026.4.14-2",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/git@sha256:e13fa3717541ea271f568888f058f5d4f1ac7ae88f836f71c4ad25522ddb89c4",
+      "integrity": "sha256:e13fa3717541ea271f568888f058f5d4f1ac7ae88f836f71c4ad25522ddb89c4"
+    },
     "ghcr.io/wemaintain/devcontainers/features/terraform": {
       "version": "2026.3.25",
       "resolved": "ghcr.io/wemaintain/devcontainers/features/terraform@sha256:c40213b0ed734d6163d04a51b33b09012030edf7eb93cde9a41076f96d72c24e",
