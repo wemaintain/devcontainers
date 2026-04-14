@@ -156,7 +156,7 @@ jobs:
             fi
           } >"$BODY_FILE"
 
-          gh pr create \
+          GH_TOKEN=${{ github.token }} gh pr create \
             --title "$PR_TITLE" \
             --body-file "$BODY_FILE" \
             --base main
