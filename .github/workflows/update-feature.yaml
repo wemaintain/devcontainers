@@ -60,6 +60,56 @@ jobs:
           GH_TOKEN: ${{ secrets.token }}
           FEATURE: ${{ inputs.feature }}
         run: |
+          set -euo pipefail
+
+          CONFIG="features/src/$FEATURE/devcontainer-feature.json"
+          TITLE_MAX=120
+
+          DEPS_KEY=$(
+            jq -r \
+              '(.customizations.manifest.dependencies // [])
+              | map("\(.name)=\(.version)")
+              | sort
+              | join("|")' \
+              "$CONFIG"
+          )
+          DEPS_FULL=$(
+            jq -r \
+              '(.customizations.manifest.dependencies // [])
+              | map("\(.name) \(.version)")
+              | sort
+              | if length == 0 then "none" else join(", ") end' \
+              "$CONFIG"
+          )
+
+          PR_TITLE="feat($FEATURE): update deps ($DEPS_FULL)"
+          if (( ${#PR_TITLE} > TITLE_MAX )); then
+            PR_TITLE="${PR_TITLE:0:$((TITLE_MAX - 3))}..."
+          fi
+          BODY_MARKER="<!-- updater-dedupe:kind=feat;name=$FEATURE;deps=$DEPS_KEY -->"
+
+          EXISTING_PR=$(
+            gh pr list --state open --base main --limit 200 --json number,body |
+              jq -r --arg MARKER "$BODY_MARKER" \
+                '.[] | select((.body // "") | contains($MARKER)) | .number' |
+              head -n1
+          )
+
+          if [[ -n "$EXISTING_PR" ]]; then
+            echo "Skipping PR creation: duplicate open PR #$EXISTING_PR for $FEATURE with same dependency versions"
+            exit 0
+          fi
+
+          BODY_FILE=$(mktemp)
+          {
+            echo "Automated feature dependency update."
+            echo
+            echo "$BODY_MARKER"
+            echo
+            echo "Dependencies: $DEPS_FULL"
+          } >"$BODY_FILE"
+
           gh pr create \
-            --title "feature/$FEATURE: update dependencies" --body "" \
+            --title "$PR_TITLE" \
+            --body-file "$BODY_FILE" \
             --base main
