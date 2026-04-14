@@ -31,9 +31,9 @@
       "integrity": "sha256:3dd5453e865a8ae4a8fe8a2c987a49a64b891ec572cd6053ab42eeb4cd5868f9"
     },
     "ghcr.io/wemaintain/devcontainers/features/nx": {
-      "version": "2026.3.25",
-      "resolved": "ghcr.io/wemaintain/devcontainers/features/nx@sha256:49093a9389550f19eaedb458bdfb5ce6c0f6a2fe9dca95cd1bd36fa32f549c8a",
-      "integrity": "sha256:49093a9389550f19eaedb458bdfb5ce6c0f6a2fe9dca95cd1bd36fa32f549c8a"
+      "version": "2026.4.13",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/nx@sha256:721af2d5d380eda215ffd80c147afe2c4407a1a8011f1a31192caf1a63252f48",
+      "integrity": "sha256:721af2d5d380eda215ffd80c147afe2c4407a1a8011f1a31192caf1a63252f48"
     }
   }
 }
