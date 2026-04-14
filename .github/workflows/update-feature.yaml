@@ -113,8 +113,6 @@ jobs:
           fi
           BODY_MARKER="<!-- updater-dedupe:kind=feat;name=$FEATURE;deps=$DEPS_KEY -->"
 
-          COMPONENT_MARKER="<!-- updater-dedupe:kind=feat;name=$FEATURE;"
-
           ALL_OPEN=$(
             gh pr list --state open --base main --limit 200 --json number,body
           )
@@ -131,15 +129,6 @@ jobs:
             exit 0
           fi
 
-          STALE_CLOSES=$(
-            echo "$ALL_OPEN" |
-              jq -r --arg PREFIX "$COMPONENT_MARKER" --arg EXACT "$BODY_MARKER" \
-                '.[] | select(
-                  ((.body // "") | contains($PREFIX)) and
-                  ((.body // "") | contains($EXACT) | not)
-                ) | "closes #\(.number)"'
-          )
-
           BODY_FILE=$(mktemp)
           {
             echo "$BODY_MARKER"
@@ -147,13 +136,13 @@ jobs:
             echo "**Dependencies:**"
             echo
             echo "$DEPS_BULLETS"
-            if [[ -n "$STALE_CLOSES" ]]; then
-              echo
-              echo "$STALE_CLOSES"
-            fi
           } >"$BODY_FILE"
 
-          gh pr create \
-            --title "$PR_TITLE" \
-            --body-file "$BODY_FILE" \
-            --base main
+          PR_URL=$(
+            gh pr create \
+              --title "$PR_TITLE" \
+              --body-file "$BODY_FILE" \
+              --base main
+          )
+
+          gh pr merge --auto --squash "$PR_URL"
