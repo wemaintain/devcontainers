@@ -63,7 +63,6 @@ jobs:
           set -euo pipefail
 
           LOCK="images/src/$IMAGE/.devcontainer/devcontainer-lock.json"
-          TITLE_MAX=120
 
           FEAT_KEY=$(
             jq -r \
@@ -78,7 +77,7 @@ jobs:
               | join("|")' \
               "$LOCK"
           )
-          FEAT_FULL=$(
+          FEAT_BULLETS=$(
             jq -r \
               '(.features // {})
               | to_entries
@@ -87,19 +86,37 @@ jobs:
                   version: .value.version
                 })
               | sort_by(.name)
-              | map("\(.name) \(.version)")
-              | if length == 0 then "none" else join(", ") end' \
+              | map("- \(.name): \(.version)")
+              | join("\n")' \
               "$LOCK"
           )
 
-          PR_TITLE="img($IMAGE): update feat ($FEAT_FULL)"
-          if (( ${#PR_TITLE} > TITLE_MAX )); then
-            PR_TITLE="${PR_TITLE:0:$((TITLE_MAX - 3))}..."
+          PREV_LOCK=$(git show "origin/main:$LOCK" 2>/dev/null || echo '{}')
+          FIRST_CHANGED=$(
+            jq -rn \
+              --argjson prev "$PREV_LOCK" \
+              --argjson curr "$(cat "$LOCK")" \
+              '(($curr.features // {}) | to_entries | map({name: (.key | split("/") | last), version: .value.version})) as $new |
+              (($prev.features // {}) | to_entries | map({name: (.key | split("/") | last), version: .value.version}) | map({key: .name, value: .version}) | from_entries) as $oldmap |
+              $new | map(select($oldmap[.name] != .version)) | sort_by(.name) | first |
+              if . then "\(.name) \(.version)" else empty end'
+          )
+
+          if [[ -n "$FIRST_CHANGED" ]]; then
+            PR_TITLE="img($IMAGE): update features ($FIRST_CHANGED)"
+          else
+            PR_TITLE="img($IMAGE): update features"
           fi
           BODY_MARKER="<!-- updater-dedupe:kind=img;name=$IMAGE;deps=$FEAT_KEY -->"
 
+          COMPONENT_MARKER="<!-- updater-dedupe:kind=img;name=$IMAGE;"
+
+          ALL_OPEN=$(
+            gh pr list --state open --base main --limit 200 --json number,body
+          )
+
           EXISTING_PR=$(
-            gh pr list --state open --base main --limit 200 --json number,body |
+            echo "$ALL_OPEN" |
               jq -r --arg MARKER "$BODY_MARKER" \
                 '.[] | select((.body // "") | contains($MARKER)) | .number' |
               head -n1
@@ -110,13 +127,26 @@ jobs:
             exit 0
           fi
 
+          STALE_CLOSES=$(
+            echo "$ALL_OPEN" |
+              jq -r --arg PREFIX "$COMPONENT_MARKER" --arg EXACT "$BODY_MARKER" \
+                '.[] | select(
+                  ((.body // "") | contains($PREFIX)) and
+                  ((.body // "") | contains($EXACT) | not)
+                ) | "closes #\(.number)"'
+          )
+
           BODY_FILE=$(mktemp)
           {
-            echo "Automated image feature refresh."
-            echo
             echo "$BODY_MARKER"
             echo
-            echo "Feature versions: $FEAT_FULL"
+            echo "**Features:**"
+            echo
+            echo "$FEAT_BULLETS"
+            if [[ -n "$STALE_CLOSES" ]]; then
+              echo
+              echo "$STALE_CLOSES"
+            fi
           } >"$BODY_FILE"
 
           gh pr create \

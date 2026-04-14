@@ -63,7 +63,6 @@ jobs:
           set -euo pipefail
 
           CONFIG="features/src/$FEATURE/devcontainer-feature.json"
-          TITLE_MAX=120
 
           DEPS_KEY=$(
             jq -r \
@@ -73,23 +72,42 @@ jobs:
               | join("|")' \
               "$CONFIG"
           )
-          DEPS_FULL=$(
+          DEPS_BULLETS=$(
             jq -r \
               '(.customizations.manifest.dependencies // [])
-              | map("\(.name) \(.version)")
-              | sort
-              | if length == 0 then "none" else join(", ") end' \
+              | sort_by(.name)
+              | map("- \(.name): \(.version)")
+              | join("\n")' \
               "$CONFIG"
           )
 
-          PR_TITLE="feat($FEATURE): update deps ($DEPS_FULL)"
-          if (( ${#PR_TITLE} > TITLE_MAX )); then
-            PR_TITLE="${PR_TITLE:0:$((TITLE_MAX - 3))}..."
+          PREV_CONFIG=$(git show "origin/main:$CONFIG" 2>/dev/null || echo '{}')
+          FIRST_CHANGED=$(
+            jq -rn \
+              --argjson prev "$PREV_CONFIG" \
+              --argjson curr "$(cat "$CONFIG")" \
+              '($curr.customizations.manifest.dependencies // []) as $new |
+              ($prev.customizations.manifest.dependencies // []) as $old |
+              ($old | map({key: .name, value: .version}) | from_entries) as $oldmap |
+              $new | map(select($oldmap[.name] != .version)) | first |
+              if . then "\(.name) \(.version)" else empty end'
+          )
+
+          if [[ -n "$FIRST_CHANGED" ]]; then
+            PR_TITLE="feat($FEATURE): update deps ($FIRST_CHANGED)"
+          else
+            PR_TITLE="feat($FEATURE): update deps"
           fi
           BODY_MARKER="<!-- updater-dedupe:kind=feat;name=$FEATURE;deps=$DEPS_KEY -->"
 
+          COMPONENT_MARKER="<!-- updater-dedupe:kind=feat;name=$FEATURE;"
+
+          ALL_OPEN=$(
+            gh pr list --state open --base main --limit 200 --json number,body
+          )
+
           EXISTING_PR=$(
-            gh pr list --state open --base main --limit 200 --json number,body |
+            echo "$ALL_OPEN" |
               jq -r --arg MARKER "$BODY_MARKER" \
                 '.[] | select((.body // "") | contains($MARKER)) | .number' |
               head -n1
@@ -100,13 +118,26 @@ jobs:
             exit 0
           fi
 
+          STALE_CLOSES=$(
+            echo "$ALL_OPEN" |
+              jq -r --arg PREFIX "$COMPONENT_MARKER" --arg EXACT "$BODY_MARKER" \
+                '.[] | select(
+                  ((.body // "") | contains($PREFIX)) and
+                  ((.body // "") | contains($EXACT) | not)
+                ) | "closes #\(.number)"'
+          )
+
           BODY_FILE=$(mktemp)
           {
-            echo "Automated feature dependency update."
-            echo
             echo "$BODY_MARKER"
             echo
-            echo "Dependencies: $DEPS_FULL"
+            echo "**Dependencies:**"
+            echo
+            echo "$DEPS_BULLETS"
+            if [[ -n "$STALE_CLOSES" ]]; then
+              echo
+              echo "$STALE_CLOSES"
+            fi
           } >"$BODY_FILE"
 
           gh pr create \
