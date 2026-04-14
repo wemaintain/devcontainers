@@ -156,7 +156,11 @@ jobs:
             fi
           } >"$BODY_FILE"
 
-          GH_TOKEN=${{ github.token }} gh pr create \
-            --title "$PR_TITLE" \
-            --body-file "$BODY_FILE" \
-            --base main
+          PR_URL=$(
+            GH_TOKEN=${{ github.token }} gh pr create \
+              --title "$PR_TITLE" \
+              --body-file "$BODY_FILE" \
+              --base main
+          )
+
+          gh pr review --approve "$PR_URL"
