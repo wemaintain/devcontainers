@@ -60,6 +60,91 @@ jobs:
           GH_TOKEN: ${{ secrets.token }}
           FEATURE: ${{ inputs.feature }}
         run: |
-          gh pr create \
-            --title "feature/$FEATURE: update dependencies" --body "" \
-            --base main
+          set -euo pipefail
+
+          CONFIG="features/src/$FEATURE/devcontainer-feature.json"
+          PREV_CONFIG=$(git show "origin/main:$CONFIG" 2>/dev/null || echo '{}')
+
+          DEPS_KEY=$(
+            jq -r \
+              '(.customizations.manifest.dependencies // [])
+              | map("\(.name)=\(.version)")
+              | sort
+              | join("|")' \
+              "$CONFIG"
+          )
+          DEPS_BULLETS=$(
+            jq -rn \
+              --argjson prev "$PREV_CONFIG" \
+              --argjson curr "$(cat "$CONFIG")" \
+              '($curr.customizations.manifest.dependencies // []) as $new |
+              ($prev.customizations.manifest.dependencies // []) as $old |
+              ($old | map({key: .name, value: .version}) | from_entries) as $oldmap |
+              $new
+              | map({name: .name, old: ($oldmap[.name] // "n/a"), new: .version})
+              | map(select(.old != .new))
+              | sort_by(.name)
+              | if length == 0 then
+                  "- none"
+                else
+                  map("- \(.name): \(.old) ➡️ \(.new)") | join("\n")
+                end'
+          )
+
+          FIRST_CHANGED=$(
+            jq -rn \
+              --argjson prev "$PREV_CONFIG" \
+              --argjson curr "$(cat "$CONFIG")" \
+              '($curr.customizations.manifest.dependencies // []) as $new |
+              ($prev.customizations.manifest.dependencies // []) as $old |
+              ($old | map({key: .name, value: .version}) | from_entries) as $oldmap |
+              $new
+              | map({name: .name, old: ($oldmap[.name] // "n/a"), new: .version})
+              | map(select(.old != .new))
+              | sort_by(.name)
+              | first
+              | if . then "\(.name) \(.old) ➡️ \(.new)" else empty end'
+          )
+
+          if [[ -n "$FIRST_CHANGED" ]]; then
+            PR_TITLE="feat($FEATURE): update deps ($FIRST_CHANGED)"
+          else
+            PR_TITLE="feat($FEATURE): update deps"
+          fi
+          BODY_MARKER="<!-- updater-dedupe:kind=feat;name=$FEATURE;deps=$DEPS_KEY -->"
+
+          ALL_OPEN=$(
+            gh pr list --state open --base main --limit 200 --json number,body
+          )
+
+          EXISTING_PR=$(
+            echo "$ALL_OPEN" |
+              jq -r --arg MARKER "$BODY_MARKER" \
+                '.[] | select((.body // "") | contains($MARKER)) | .number' |
+              head -n1
+          )
+
+          if [[ -n "$EXISTING_PR" ]]; then
+            echo "Skipping PR creation: duplicate open PR #$EXISTING_PR for $FEATURE with same dependency versions"
+            exit 0
+          fi
+
+          BODY_FILE=$(mktemp)
+          {
+            echo "$BODY_MARKER"
+            echo
+            echo "**Dependencies:**"
+            echo
+            echo "$DEPS_BULLETS"
+          } >"$BODY_FILE"
+
+          PR_URL=$(
+            gh pr create \
+              --title "$PR_TITLE" \
+              --body-file "$BODY_FILE" \
+              --base main
+          )
+
+          GH_TOKEN=${{ github.token }} gh pr review --approve "$PR_URL"
+
+          gh pr merge --auto --squash "$PR_URL"

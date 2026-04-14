@@ -60,6 +60,103 @@ jobs:
           GH_TOKEN: ${{ secrets.token }}
           IMAGE: ${{ inputs.image }}
         run: |
+          set -euo pipefail
+
+          LOCK="images/src/$IMAGE/.devcontainer/devcontainer-lock.json"
+          PREV_LOCK=$(git show "origin/main:$LOCK" 2>/dev/null || echo '{}')
+
+          FEAT_KEY=$(
+            jq -r \
+              '(.features // {})
+              | to_entries
+              | map({
+                  name: (.key | split("/") | last),
+                  version: .value.version
+                })
+              | sort_by(.name)
+              | map("\(.name)=\(.version)")
+              | join("|")' \
+              "$LOCK"
+          )
+          FEAT_BULLETS=$(
+            jq -rn \
+              --argjson prev "$PREV_LOCK" \
+              --argjson curr "$(cat "$LOCK")" \
+              '(($curr.features // {}) | to_entries | map({name: (.key | split("/") | last), version: .value.version})) as $new |
+              (($prev.features // {}) | to_entries | map({name: (.key | split("/") | last), version: .value.version}) | map({key: .name, value: .version}) | from_entries) as $oldmap |
+              $new
+              | map({name: .name, old: ($oldmap[.name] // "n/a"), new: .version})
+              | map(select(.old != .new))
+              | sort_by(.name)
+              | if length == 0 then
+                  "- none"
+                else
+                  map("- \(.name): \(.old) ➡️ \(.new)") | join("\n")
+                end'
+          )
+
+          FIRST_CHANGED=$(
+            jq -rn \
+              --argjson prev "$PREV_LOCK" \
+              --argjson curr "$(cat "$LOCK")" \
+              '(($curr.features // {}) | to_entries | map({name: (.key | split("/") | last), version: .value.version})) as $new |
+              (($prev.features // {}) | to_entries | map({name: (.key | split("/") | last), version: .value.version}) | map({key: .name, value: .version}) | from_entries) as $oldmap |
+              $new
+              | map({name: .name, old: ($oldmap[.name] // "n/a"), new: .version})
+              | map(select(.old != .new))
+              | sort_by(.name)
+              | first
+              | if . then "\(.name) \(.old) ➡️ \(.new)" else empty end'
+          )
+
+          if [[ -n "$FIRST_CHANGED" ]]; then
+            PR_TITLE="img($IMAGE): update features ($FIRST_CHANGED)"
+          else
+            PR_TITLE="img($IMAGE): update features"
+          fi
+          BODY_MARKER="<!-- updater-dedupe:kind=img;name=$IMAGE;deps=$FEAT_KEY -->"
+
+          COMPONENT_MARKER="<!-- updater-dedupe:kind=img;name=$IMAGE;"
+
+          ALL_OPEN=$(
+            gh pr list --state open --base main --limit 200 --json number,body
+          )
+
+          EXISTING_PR=$(
+            echo "$ALL_OPEN" |
+              jq -r --arg MARKER "$BODY_MARKER" \
+                '.[] | select((.body // "") | contains($MARKER)) | .number' |
+              head -n1
+          )
+
+          if [[ -n "$EXISTING_PR" ]]; then
+            echo "Skipping PR creation: duplicate open PR #$EXISTING_PR for $IMAGE with same feature versions"
+            exit 0
+          fi
+
+          STALE_CLOSES=$(
+            echo "$ALL_OPEN" |
+              jq -r --arg PREFIX "$COMPONENT_MARKER" --arg EXACT "$BODY_MARKER" \
+                '.[] | select(
+                  ((.body // "") | contains($PREFIX)) and
+                  ((.body // "") | contains($EXACT) | not)
+                ) | "closes #\(.number)"'
+          )
+
+          BODY_FILE=$(mktemp)
+          {
+            echo "$BODY_MARKER"
+            echo
+            echo "**Features:**"
+            echo
+            echo "$FEAT_BULLETS"
+            if [[ -n "$STALE_CLOSES" ]]; then
+              echo
+              echo "$STALE_CLOSES"
+            fi
+          } >"$BODY_FILE"
+
           gh pr create \
-            --title "image/$IMAGE: update dependencies" --body "" \
+            --title "$PR_TITLE" \
+            --body-file "$BODY_FILE" \
             --base main
