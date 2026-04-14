@@ -26,14 +26,14 @@
       "integrity": "sha256:42b087359e4118f75f2d7399bdc7e5866d8db0a4f14e82bd67f93e43d6536b81"
     },
     "ghcr.io/wemaintain/devcontainers/features/angular": {
-      "version": "2026.3.24",
-      "resolved": "ghcr.io/wemaintain/devcontainers/features/angular@sha256:3dd5453e865a8ae4a8fe8a2c987a49a64b891ec572cd6053ab42eeb4cd5868f9",
-      "integrity": "sha256:3dd5453e865a8ae4a8fe8a2c987a49a64b891ec572cd6053ab42eeb4cd5868f9"
+      "version": "2026.4.14",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/angular@sha256:1f32452111edf52112bdd3ccdc30b711f7d5a066dec83f50bf83bbbc59f9f6b0",
+      "integrity": "sha256:1f32452111edf52112bdd3ccdc30b711f7d5a066dec83f50bf83bbbc59f9f6b0"
     },
     "ghcr.io/wemaintain/devcontainers/features/nx": {
-      "version": "2026.3.25",
-      "resolved": "ghcr.io/wemaintain/devcontainers/features/nx@sha256:49093a9389550f19eaedb458bdfb5ce6c0f6a2fe9dca95cd1bd36fa32f549c8a",
-      "integrity": "sha256:49093a9389550f19eaedb458bdfb5ce6c0f6a2fe9dca95cd1bd36fa32f549c8a"
+      "version": "2026.4.13",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/nx@sha256:721af2d5d380eda215ffd80c147afe2c4407a1a8011f1a31192caf1a63252f48",
+      "integrity": "sha256:721af2d5d380eda215ffd80c147afe2c4407a1a8011f1a31192caf1a63252f48"
     }
   }
 }
