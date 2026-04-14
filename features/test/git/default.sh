@@ -4,7 +4,7 @@ set -eux
 
 source dev-container-features-test-lib
 
-EXPECTED=$(jq -r '.customizations.manifest.dependencies[] | select(.name == "git") | .version' "$(dirname "$0")/../../src/git/devcontainer-feature.json")
+EXPECTED=$(cat /usr/local/share/devcontainer-features/git-version)
 
 check "git" which git >/dev/null
 check "version" bash -c "git --version | grep -Fq '${EXPECTED}'"
