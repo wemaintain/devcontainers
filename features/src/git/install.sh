@@ -20,7 +20,7 @@ EXPECTED_VERSION=$(dc_version git)
 SRCDIR=$(mktemp -d /tmp/git.XXXXXXXX)
 tar --extract --file $PACKAGE --strip-components 1 --directory "$SRCDIR"
 
-make -C "$SRCDIR" prefix=/opt -j"$(nproc)" install
+make -C "$SRCDIR" prefix=/opt sysconfdir=/etc -j"$(nproc)" install
 
 mkdir -p /usr/local/share/devcontainer-features
 echo "$EXPECTED_VERSION" >/usr/local/share/devcontainer-features/git-version
