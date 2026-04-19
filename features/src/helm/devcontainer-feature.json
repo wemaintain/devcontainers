@@ -1,7 +1,7 @@
 {
   "id": "helm",
   "name": "helm",
-  "version": "2026.4.13",
+  "version": "2026.4.19",
   "containerEnv": {
     "HELM_PLUGINS": "/opt/helm/plugins"
   },
@@ -29,19 +29,19 @@
         },
         {
           "name": "helm-diff",
-          "version": "3.15.5",
+          "version": "3.15.6",
           "hint": "releases/v[0-9]+\\.[0-9]+(\\.[0-9]+)?",
           "repository": "github.com/databus23/helm-diff",
           "artifacts": [
             {
               "architecture": "amd64",
               "url": "https://github.com/databus23/helm-diff/releases/download/v${VERSION}/helm-diff-linux-amd64.tgz",
-              "checksum": "4e82630ab2b23317c039e7b3b16605f79a8ac0f3d22873e0d46ea9cd980dda8e"
+              "checksum": "1d619c3f851e54fd2ea585411ac6d89d349e26ee76b0fe86391acd17af6b69f7"
             },
             {
               "architecture": "arm64",
               "url": "https://github.com/databus23/helm-diff/releases/download/v${VERSION}/helm-diff-linux-arm64.tgz",
-              "checksum": "e2dbbff77068d93ed5620623ea81f24d86a1ed4400b91984d6382f48011f69a3"
+              "checksum": "0a8950f56042467f3fbf2372ec133fb1ad3f07b81bf939e596ab82b40f3d2b8c"
             }
           ]
         },
