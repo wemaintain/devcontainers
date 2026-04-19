@@ -17,7 +17,7 @@
   "customizations": {
     "manifest": {
       "name": "terraform",
-      "version": "2026.4.14-1"
+      "version": "2026.4.19"
     },
     "vscode": {
       "settings": {
