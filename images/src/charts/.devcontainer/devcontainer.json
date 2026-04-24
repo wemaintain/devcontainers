@@ -1,5 +1,5 @@
 {
-  "image": "debian:trixie-20260406",
+  "image": "debian:trixie-20260421",
   "features": {
     "ghcr.io/lifadev/devcontainers/features/aws2": {},
     "ghcr.io/lifadev/devcontainers/features/base": {},
@@ -18,7 +18,7 @@
   "customizations": {
     "manifest": {
       "name": "charts",
-      "version": "2026.4.20"
+      "version": "2026.4.24"
     },
     "vscode": {
       "settings": {
