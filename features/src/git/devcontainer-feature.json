@@ -1,25 +1,25 @@
 {
   "id": "git",
   "name": "git",
-  "version": "2026.4.14-2",
+  "version": "2026.4.24",
   "customizations": {
     "manifest": {
       "dependencies": [
         {
           "name": "git",
-          "version": "2.53.0",
+          "version": "2.54.0",
           "hint": "tags/v[0-9]+\\.[0-9]+(\\.[0-9]+)?",
           "repository": "github.com/git/git",
           "artifacts": [
             {
               "architecture": "amd64",
               "url": "https://mirrors.edge.kernel.org/pub/software/scm/git/git-${VERSION}.tar.gz",
-              "checksum": "429dc0f5fe5f14109930cdbbb588c5d6ef5b8528910f0d738040744bebdc6275"
+              "checksum": "45e8107643a44e3ce46f5665beb35af3932fb0d70017687905ab5d4e3aafa8eb"
             },
             {
               "architecture": "arm64",
               "url": "https://mirrors.edge.kernel.org/pub/software/scm/git/git-${VERSION}.tar.gz",
-              "checksum": "429dc0f5fe5f14109930cdbbb588c5d6ef5b8528910f0d738040744bebdc6275"
+              "checksum": "45e8107643a44e3ce46f5665beb35af3932fb0d70017687905ab5d4e3aafa8eb"
             }
           ]
         }
