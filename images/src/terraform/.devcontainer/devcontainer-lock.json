@@ -1,9 +1,9 @@
 {
   "features": {
     "ghcr.io/lifadev/devcontainers/features/aws2": {
-      "version": "2026.4.24",
-      "resolved": "ghcr.io/lifadev/devcontainers/features/aws2@sha256:109a422b030a4f2d2f144e14ef0a99374a5fdee89acff1e317e0eb199952cc7d",
-      "integrity": "sha256:109a422b030a4f2d2f144e14ef0a99374a5fdee89acff1e317e0eb199952cc7d"
+      "version": "2026.4.27",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/aws2@sha256:a6f2be70e91407961af73411eadf33c9e9d5328630ee4f83cdc2f7aa1ea58e4d",
+      "integrity": "sha256:a6f2be70e91407961af73411eadf33c9e9d5328630ee4f83cdc2f7aa1ea58e4d"
     },
     "ghcr.io/lifadev/devcontainers/features/base": {
       "version": "2025.4.12",
