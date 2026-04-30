@@ -18,7 +18,7 @@
   "customizations": {
     "manifest": {
       "name": "charts",
-      "version": "2026.4.27"
+      "version": "2026.4.30"
     },
     "vscode": {
       "settings": {
