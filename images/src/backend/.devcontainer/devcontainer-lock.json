@@ -1,9 +1,9 @@
 {
   "features": {
     "ghcr.io/lifadev/devcontainers/features/aws2": {
-      "version": "2026.4.24",
-      "resolved": "ghcr.io/lifadev/devcontainers/features/aws2@sha256:109a422b030a4f2d2f144e14ef0a99374a5fdee89acff1e317e0eb199952cc7d",
-      "integrity": "sha256:109a422b030a4f2d2f144e14ef0a99374a5fdee89acff1e317e0eb199952cc7d"
+      "version": "2026.4.29",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/aws2@sha256:744802fa9f4e749319e79fbb403d64107c325c18da00d22629e695eabeb25e63",
+      "integrity": "sha256:744802fa9f4e749319e79fbb403d64107c325c18da00d22629e695eabeb25e63"
     },
     "ghcr.io/lifadev/devcontainers/features/base": {
       "version": "2025.4.12",
@@ -16,9 +16,9 @@
       "integrity": "sha256:520cff3b6f1ddb09c430f7349e260b387e2b26736f87878d1feb8702b42149f7"
     },
     "ghcr.io/lifadev/devcontainers/features/cdk": {
-      "version": "2026.4.23",
-      "resolved": "ghcr.io/lifadev/devcontainers/features/cdk@sha256:5dee923bf278a9e4d7307f33443bf02f296324233d5e4d61e4616115fcc38f3b",
-      "integrity": "sha256:5dee923bf278a9e4d7307f33443bf02f296324233d5e4d61e4616115fcc38f3b"
+      "version": "2026.4.29",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/cdk@sha256:dae15011472fe44fa50aa0203b0640cc25676273ac2bafe4218d7f91eca69a90",
+      "integrity": "sha256:dae15011472fe44fa50aa0203b0640cc25676273ac2bafe4218d7f91eca69a90"
     },
     "ghcr.io/lifadev/devcontainers/features/developer": {
       "version": "2026.1.22",
