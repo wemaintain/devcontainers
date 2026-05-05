@@ -19,7 +19,7 @@
   "customizations": {
     "manifest": {
       "name": "angular",
-      "version": "2026.4.27"
+      "version": "2026.5.5"
     },
     "vscode": {
       "settings": {
