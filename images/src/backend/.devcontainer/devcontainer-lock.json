@@ -1,9 +1,9 @@
 {
   "features": {
     "ghcr.io/lifadev/devcontainers/features/aws2": {
-      "version": "2026.4.24",
-      "resolved": "ghcr.io/lifadev/devcontainers/features/aws2@sha256:109a422b030a4f2d2f144e14ef0a99374a5fdee89acff1e317e0eb199952cc7d",
-      "integrity": "sha256:109a422b030a4f2d2f144e14ef0a99374a5fdee89acff1e317e0eb199952cc7d"
+      "version": "2026.5.5",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/aws2@sha256:24ee0065dfa40e96dcd234e1fd14782e239638d590e753e516b1aea0c53e1bc3",
+      "integrity": "sha256:24ee0065dfa40e96dcd234e1fd14782e239638d590e753e516b1aea0c53e1bc3"
     },
     "ghcr.io/lifadev/devcontainers/features/base": {
       "version": "2025.4.12",
@@ -16,9 +16,9 @@
       "integrity": "sha256:520cff3b6f1ddb09c430f7349e260b387e2b26736f87878d1feb8702b42149f7"
     },
     "ghcr.io/lifadev/devcontainers/features/cdk": {
-      "version": "2026.4.23",
-      "resolved": "ghcr.io/lifadev/devcontainers/features/cdk@sha256:5dee923bf278a9e4d7307f33443bf02f296324233d5e4d61e4616115fcc38f3b",
-      "integrity": "sha256:5dee923bf278a9e4d7307f33443bf02f296324233d5e4d61e4616115fcc38f3b"
+      "version": "2026.4.29",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/cdk@sha256:dae15011472fe44fa50aa0203b0640cc25676273ac2bafe4218d7f91eca69a90",
+      "integrity": "sha256:dae15011472fe44fa50aa0203b0640cc25676273ac2bafe4218d7f91eca69a90"
     },
     "ghcr.io/lifadev/devcontainers/features/developer": {
       "version": "2026.1.22",
@@ -31,9 +31,9 @@
       "integrity": "sha256:7f6638f1dcb752ffa803ac067c1dcb5b420a7cca070fa58f60f1979743b812b2"
     },
     "ghcr.io/lifadev/devcontainers/features/starship": {
-      "version": "2026.4.18",
-      "resolved": "ghcr.io/lifadev/devcontainers/features/starship@sha256:efec4f76e4ff24b8177e9e56f7c2d30f10d8dd8f8c3c5f68f27a94e8de1e95cf",
-      "integrity": "sha256:efec4f76e4ff24b8177e9e56f7c2d30f10d8dd8f8c3c5f68f27a94e8de1e95cf"
+      "version": "2026.4.30",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/starship@sha256:c2747446d951e9f2fd4e35dc9a294c42da3db0ed52f4e3b9b18012c7c020a153",
+      "integrity": "sha256:c2747446d951e9f2fd4e35dc9a294c42da3db0ed52f4e3b9b18012c7c020a153"
     },
     "ghcr.io/wemaintain/devcontainers/features/cdktf": {
       "version": "2025.6.7",
