@@ -1,5 +1,5 @@
 {
-  "image": "debian:trixie-20260421",
+  "image": "debian:trixie-20260505",
   "features": {
     "ghcr.io/lifadev/devcontainers/features/base": {},
     "ghcr.io/lifadev/devcontainers/features/bash": {},
@@ -17,7 +17,7 @@
   "customizations": {
     "manifest": {
       "name": "terraform",
-      "version": "2026.4.27"
+      "version": "2026.5.12"
     },
     "vscode": {
       "settings": {
