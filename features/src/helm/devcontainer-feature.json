@@ -1,7 +1,7 @@
 {
   "id": "helm",
   "name": "helm",
-  "version": "2026.4.18",
+  "version": "2026.5.15",
   "containerEnv": {
     "HELM_PLUGINS": "/opt/helm/plugins"
   },
@@ -11,55 +11,55 @@
       "dependencies": [
         {
           "name": "helm",
-          "version": "3.20.2",
+          "version": "3.21.0",
           "hint": "tags/v3\\.[0-9]+\\.[0-9]+",
           "repository": "github.com/helm/helm",
           "artifacts": [
             {
               "architecture": "amd64",
               "url": "https://get.helm.sh/helm-v${VERSION}-linux-amd64.tar.gz",
-              "checksum": "258e830a9e613c8a7a302d6059b4bb3b9758f2f3e1bb8ea0d707ce10a9a72fea"
+              "checksum": "0093eb572e3d2380f094df162ddb525e219249de88957afe24cfbb19632acd36"
             },
             {
               "architecture": "arm64",
               "url": "https://get.helm.sh/helm-v${VERSION}-linux-arm64.tar.gz",
-              "checksum": "5ea2d6bc2cda3f8edf985e028809f5a9278f404fb8ab24044de9b7cb9b79a691"
+              "checksum": "8de5a0c9a47431e59fd560e91e0779c8cf9316c383da7efb84128a4c339ecb2d"
             }
           ]
         },
         {
           "name": "helm-diff",
-          "version": "3.15.6",
+          "version": "3.15.7",
           "hint": "releases/v[0-9]+\\.[0-9]+(\\.[0-9]+)?",
           "repository": "github.com/databus23/helm-diff",
           "artifacts": [
             {
               "architecture": "amd64",
               "url": "https://github.com/databus23/helm-diff/releases/download/v${VERSION}/helm-diff-linux-amd64.tgz",
-              "checksum": "1d619c3f851e54fd2ea585411ac6d89d349e26ee76b0fe86391acd17af6b69f7"
+              "checksum": "ff7b1b6f3f4fafeac1d0e2c0c82eafac6fa7601bda52396355bf931ecf3a304a"
             },
             {
               "architecture": "arm64",
               "url": "https://github.com/databus23/helm-diff/releases/download/v${VERSION}/helm-diff-linux-arm64.tgz",
-              "checksum": "0a8950f56042467f3fbf2372ec133fb1ad3f07b81bf939e596ab82b40f3d2b8c"
+              "checksum": "2ec1e1078b8984ca04221ab110f662b6da5db29b5246f43f86d533eea3875e4d"
             }
           ]
         },
         {
           "name": "helmfile",
-          "version": "1.4.4",
+          "version": "1.5.1",
           "hint": "releases/v[0-9]+.*",
           "repository": "github.com/helmfile/helmfile",
           "artifacts": [
             {
               "architecture": "amd64",
               "url": "https://github.com/helmfile/helmfile/releases/download/v${VERSION}/helmfile_${VERSION}_linux_amd64.tar.gz",
-              "checksum": "3c35a7d7f65e900fa770cc27c119b1f48d458cd5755b4103e679ba5eb029ec91"
+              "checksum": "4c0c92f711aaf95b953065a0a76c6adfd4f7fb9f8c7065db5c94d32a0caf288f"
             },
             {
               "architecture": "arm64",
               "url": "https://github.com/helmfile/helmfile/releases/download/v${VERSION}/helmfile_${VERSION}_linux_arm64.tar.gz",
-              "checksum": "9ed46e06d7ec19bf1fb78f6e2995214112be9e10934a20576a52df5f4bfa6da2"
+              "checksum": "580984c7c2785d6c7255dc49cc24d3a4c70dae5d7f25a80f58f93b08d91cf753"
             }
           ]
         }
