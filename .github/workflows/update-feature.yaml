@@ -35,7 +35,7 @@ jobs:
       - name: Update feature
         id: update
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.token }}
           FEATURE: ${{ inputs.feature }}
         run: |
           set -euo pipefail
@@ -139,7 +139,7 @@ jobs:
           } >"$BODY_FILE"
 
           PR_URL=$(
-            GH_TOKEN=${{ github.token }}  gh pr create \
+            GH_TOKEN=${{ secrets.token }}  gh pr create \
               --title "$PR_TITLE" \
               --body-file "$BODY_FILE" \
               --base main
