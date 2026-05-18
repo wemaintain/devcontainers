@@ -95,6 +95,18 @@ jobs:
                 end'
           )
 
+          CHANGED_COUNT=$(
+            jq -rn \
+              --argjson prev "$PREV_LOCK" \
+              --argjson curr "$(cat "$LOCK")" \
+              '(($curr.features // {}) | to_entries | map({name: (.key | split("/") | last), version: .value.version})) as $new |
+              (($prev.features // {}) | to_entries | map({name: (.key | split("/") | last), version: .value.version}) | map({key: .name, value: .version}) | from_entries) as $oldmap |
+              $new
+              | map({name: .name, old: ($oldmap[.name] // "n/a"), new: .version})
+              | map(select(.old != .new))
+              | length'
+          )
+
           FIRST_CHANGED=$(
             jq -rn \
               --argjson prev "$PREV_LOCK" \
@@ -109,7 +121,9 @@ jobs:
               | if . then "\(.name) \(.old) ➡️ \(.new)" else empty end'
           )
 
-          if [[ -n "$FIRST_CHANGED" ]]; then
+          if [[ "$CHANGED_COUNT" -gt 1 ]]; then
+            PR_TITLE="img($IMAGE): update features ($CHANGED_COUNT features)"
+          elif [[ -n "$FIRST_CHANGED" ]]; then
             PR_TITLE="img($IMAGE): update features ($FIRST_CHANGED)"
           else
             PR_TITLE="img($IMAGE): update features"
@@ -162,5 +176,3 @@ jobs:
               --body-file "$BODY_FILE" \
               --base main
           )
-
-          gh pr review --approve "$PR_URL"
