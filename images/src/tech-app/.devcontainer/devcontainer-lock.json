@@ -31,9 +31,9 @@
       "integrity": "sha256:c2747446d951e9f2fd4e35dc9a294c42da3db0ed52f4e3b9b18012c7c020a153"
     },
     "ghcr.io/wemaintain/devcontainers/features/adb": {
-      "version": "2026.5.22",
-      "resolved": "ghcr.io/wemaintain/devcontainers/features/adb@sha256:8feca63d51bb2778ee9a08b8ec8badb73946197f2d5e67518ab13e4041d0db60",
-      "integrity": "sha256:8feca63d51bb2778ee9a08b8ec8badb73946197f2d5e67518ab13e4041d0db60"
+      "version": "2026.5.22-1",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/adb@sha256:33285afd730f00da312477c240f9f8138e487b697670c7445fef76e3269e20e4",
+      "integrity": "sha256:33285afd730f00da312477c240f9f8138e487b697670c7445fef76e3269e20e4"
     },
     "ghcr.io/wemaintain/devcontainers/features/git": {
       "version": "2026.4.20",
