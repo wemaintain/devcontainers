@@ -19,6 +19,9 @@
   },
   "remoteUser": "developer",
   "updateRemoteUserUID": true,
+  "remoteEnv": {
+    "PATH": "/opt/bin:${containerEnv:PATH}"
+  },
   "postCreateCommand": "sudo env PATH=$PATH corepack enable",
   "containerEnv": {
     "ANDROID_ADB_SERVER_ADDRESS": "host.docker.internal"
@@ -27,7 +30,7 @@
   "customizations": {
     "manifest": {
       "name": "tech-app",
-      "version": "2026.5.22-3"
+      "version": "2026.5.22-4"
     },
     "vscode": {
       "extensions": ["fwcd.kotlin"]
