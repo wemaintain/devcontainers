@@ -27,7 +27,7 @@
   "customizations": {
     "manifest": {
       "name": "tech-app",
-      "version": "2026.5.22-2"
+      "version": "2026.5.22-3"
     },
     "vscode": {
       "extensions": ["fwcd.kotlin"]
