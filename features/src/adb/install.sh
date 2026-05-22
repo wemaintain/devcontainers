@@ -31,6 +31,12 @@ yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --sdk_root="$ANDROID_H
   "build-tools;35.0.0" \
   "platforms;android-35"
 
+# Allow the non-root devcontainer user to install extra SDK components (ex: NDK).
+if [[ -n "${_REMOTE_USER:-}" ]] && id -u "${_REMOTE_USER}" >/dev/null 2>&1; then
+  chown -R "${_REMOTE_USER}:$(id -gn "${_REMOTE_USER}")" "$ANDROID_HOME"
+fi
+chmod -R u+rwX "$ANDROID_HOME"
+
 INSTALL_DIR=$(dc_mkdir /opt/bin)
 ln -sf "$ANDROID_HOME/platform-tools/adb" "$INSTALL_DIR/adb"
 ln -sf "$ANDROID_HOME/platform-tools/fastboot" "$INSTALL_DIR/fastboot"
