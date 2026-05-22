@@ -1,5 +1,5 @@
 {
-  "image": "debian:trixie-20260505",
+  "image": "debian:trixie-20260518",
   "features": {
     "ghcr.io/lifadev/devcontainers/features/base": {},
     "ghcr.io/lifadev/devcontainers/features/bash": {},
@@ -19,7 +19,7 @@
   "customizations": {
     "manifest": {
       "name": "angular",
-      "version": "2026.5.18"
+      "version": "2026.5.22"
     },
     "vscode": {
       "settings": {
