@@ -37,6 +37,34 @@ ln -sf "$ANDROID_HOME/platform-tools/fastboot" "$INSTALL_DIR/fastboot"
 ln -sf "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "$INSTALL_DIR/sdkmanager"
 ln -sf "$ANDROID_HOME/cmdline-tools/latest/bin/avdmanager" "$INSTALL_DIR/avdmanager"
 
+if [[ "${EMUALIAS:-false}" == "true" ]]; then
+  ADB_DIR="$ANDROID_HOME/platform-tools"
+  ADB_BIN="$ADB_DIR/adb"
+  ADB_REAL="$ADB_DIR/adb.real"
+  EMU_NAME="${EMUALIASNAME:-Dummy_Emulator}"
+
+  if [[ -f "$ADB_BIN" && ! -f "$ADB_REAL" ]]; then
+    mv "$ADB_BIN" "$ADB_REAL"
+  fi
+
+  if [[ -f "$ADB_REAL" ]]; then
+    cat >"$ADB_BIN" <<EOF
+#!/usr/bin/env bash
+
+for arg in "\$@"; do
+  if [[ "\$arg" == "emu" ]]; then
+    echo "$EMU_NAME"
+    exit 0
+  fi
+done
+
+exec "\$(dirname "\$0")/adb.real" "\$@"
+EOF
+
+    chmod +x "$ADB_BIN"
+  fi
+fi
+
 mkdir -p /usr/local/share/devcontainer-features
 echo "$CMDLINE_TOOLS_VERSION" >/usr/local/share/devcontainer-features/adb-version
 

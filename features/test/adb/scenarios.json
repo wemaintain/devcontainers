@@ -7,5 +7,17 @@
     "remoteEnv": {
       "PATH": "/opt/bin:${containerEnv:PATH}"
     }
+  },
+  "emu-alias": {
+    "image": "debian:trixie-20260505",
+    "features": {
+      "adb": {
+        "emuAlias": true,
+        "emuAliasName": "Dummy_Emulator"
+      }
+    },
+    "remoteEnv": {
+      "PATH": "/opt/bin:${containerEnv:PATH}"
+    }
   }
 }
