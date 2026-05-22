@@ -6,7 +6,7 @@ set -eux
 source dev-container-features-install-lib
 
 dc_install \
-  openjdk-17-jre-headless \
+  default-jre-headless \
   wget \
   unzip
 
