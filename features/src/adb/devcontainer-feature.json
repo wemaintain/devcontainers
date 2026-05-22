@@ -1,7 +1,19 @@
 {
   "id": "adb",
   "name": "adb",
-  "version": "2026.5.22",
+  "version": "2026.5.22-1",
+  "options": {
+    "emuAlias": {
+      "type": "boolean",
+      "default": false,
+      "description": "Wrap adb so calls containing 'emu' return a dummy emulator name"
+    },
+    "emuAliasName": {
+      "type": "string",
+      "default": "Dummy_Emulator",
+      "description": "Dummy emulator name returned when emuAlias is enabled"
+    }
+  },
   "containerEnv": {
     "ANDROID_HOME": "/opt/android-sdk",
     "ANDROID_SDK_ROOT": "/opt/android-sdk"

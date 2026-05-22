@@ -1,0 +1,41 @@
+{
+  "image": "debian:trixie-20260518",
+  "features": {
+    "ghcr.io/lifadev/devcontainers/features/base": {},
+    "ghcr.io/lifadev/devcontainers/features/bash": {},
+    "ghcr.io/lifadev/devcontainers/features/developer": {},
+    "ghcr.io/wemaintain/devcontainers/features/git": {},
+    "ghcr.io/lifadev/devcontainers/features/starship": {},
+    "ghcr.io/lifadev/devcontainers/features/node24": {},
+    "ghcr.io/wemaintain/devcontainers/features/nx": {},
+    "ghcr.io/wemaintain/devcontainers/features/adb": {
+      "emuAlias": true,
+      "emuAliasName": "Dummy_Emulator"
+    },
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "17",
+      "installGradle": "true"
+    }
+  },
+  "remoteUser": "developer",
+  "updateRemoteUserUID": true,
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "type=bind,source=${localWorkspaceFolder},target=/workspace,consistency=cached",
+  "postCreateCommand": "sudo env PATH=$PATH corepack enable",
+  "containerEnv": {
+    "ANDROID_ADB_SERVER_ADDRESS": "host.docker.internal"
+  },
+  "remoteEnv": {
+    "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"
+  },
+  "runArgs": ["--add-host=host.docker.internal:host-gateway"],
+  "customizations": {
+    "manifest": {
+      "name": "tech-app",
+      "version": "2026.5.22"
+    },
+    "vscode": {
+      "extensions": ["fwcd.kotlin"]
+    }
+  }
+}
