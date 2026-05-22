@@ -37,12 +37,6 @@ ln -sf "$ANDROID_HOME/platform-tools/fastboot" "$INSTALL_DIR/fastboot"
 ln -sf "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" "$INSTALL_DIR/sdkmanager"
 ln -sf "$ANDROID_HOME/cmdline-tools/latest/bin/avdmanager" "$INSTALL_DIR/avdmanager"
 
-dc_bash_config adb <<'EOF'
-export ANDROID_HOME=/opt/android-sdk
-export ANDROID_SDK_ROOT=/opt/android-sdk
-export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools"
-EOF
-
 mkdir -p /usr/local/share/devcontainer-features
 echo "$CMDLINE_TOOLS_VERSION" >/usr/local/share/devcontainer-features/adb-version
 
