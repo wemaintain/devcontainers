@@ -19,20 +19,15 @@
   },
   "remoteUser": "developer",
   "updateRemoteUserUID": true,
-  "workspaceFolder": "/workspace",
-  "workspaceMount": "type=bind,source=${localWorkspaceFolder},target=/workspace,consistency=cached",
   "postCreateCommand": "sudo env PATH=$PATH corepack enable",
   "containerEnv": {
     "ANDROID_ADB_SERVER_ADDRESS": "host.docker.internal"
-  },
-  "remoteEnv": {
-    "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"
   },
   "runArgs": ["--add-host=host.docker.internal:host-gateway"],
   "customizations": {
     "manifest": {
       "name": "tech-app",
-      "version": "2026.5.22-1"
+      "version": "2026.5.22-2"
     },
     "vscode": {
       "extensions": ["fwcd.kotlin"]
