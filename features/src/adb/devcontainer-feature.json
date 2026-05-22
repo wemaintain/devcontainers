@@ -1,0 +1,9 @@
+{
+  "id": "adb",
+  "name": "adb",
+  "version": "2026.5.22",
+  "containerEnv": {
+    "ANDROID_HOME": "/opt/android-sdk",
+    "ANDROID_SDK_ROOT": "/opt/android-sdk"
+  }
+}
