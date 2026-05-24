@@ -26,9 +26,9 @@
       "integrity": "sha256:c2747446d951e9f2fd4e35dc9a294c42da3db0ed52f4e3b9b18012c7c020a153"
     },
     "ghcr.io/wemaintain/devcontainers/features/angular": {
-      "version": "2026.5.13",
-      "resolved": "ghcr.io/wemaintain/devcontainers/features/angular@sha256:2dda12268971e13647a0a316d18cb918b7b593f20e7c0e9d049c2547d41a7915",
-      "integrity": "sha256:2dda12268971e13647a0a316d18cb918b7b593f20e7c0e9d049c2547d41a7915"
+      "version": "2026.5.20",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/angular@sha256:ad8b98040e45bf23e4205aff39ca17c10a481b49ca16b6a4084fe02b78c7f091",
+      "integrity": "sha256:ad8b98040e45bf23e4205aff39ca17c10a481b49ca16b6a4084fe02b78c7f091"
     },
     "ghcr.io/wemaintain/devcontainers/features/git": {
       "version": "2026.4.20",
