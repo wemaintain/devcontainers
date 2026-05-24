@@ -1,7 +1,7 @@
 {
   "id": "helm",
   "name": "helm",
-  "version": "2026.5.15",
+  "version": "2026.5.24",
   "containerEnv": {
     "HELM_PLUGINS": "/opt/helm/plugins"
   },
@@ -47,19 +47,19 @@
         },
         {
           "name": "helmfile",
-          "version": "1.5.1",
+          "version": "1.5.2",
           "hint": "releases/v[0-9]+.*",
           "repository": "github.com/helmfile/helmfile",
           "artifacts": [
             {
               "architecture": "amd64",
               "url": "https://github.com/helmfile/helmfile/releases/download/v${VERSION}/helmfile_${VERSION}_linux_amd64.tar.gz",
-              "checksum": "4c0c92f711aaf95b953065a0a76c6adfd4f7fb9f8c7065db5c94d32a0caf288f"
+              "checksum": "96e342ff19a45c2e36371f93cf6264f3ef285bbde0fc363e56cb53bdef3df1ff"
             },
             {
               "architecture": "arm64",
               "url": "https://github.com/helmfile/helmfile/releases/download/v${VERSION}/helmfile_${VERSION}_linux_arm64.tar.gz",
-              "checksum": "580984c7c2785d6c7255dc49cc24d3a4c70dae5d7f25a80f58f93b08d91cf753"
+              "checksum": "4488ca172141a2ad563ac99fffdd8f4761620b40e8e7878ab3fd0e436d4ec057"
             }
           ]
         }
