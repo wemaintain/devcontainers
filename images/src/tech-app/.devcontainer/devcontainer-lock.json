@@ -21,9 +21,9 @@
       "integrity": "sha256:ee97423622b3931d1ef48e5ed54d2b4cd3c3dc07cc6a3462e13acdf9466b9fcd"
     },
     "ghcr.io/lifadev/devcontainers/features/node24": {
-      "version": "2026.5.21",
-      "resolved": "ghcr.io/lifadev/devcontainers/features/node24@sha256:ca4a8ef972486ddab0cda4704521abdc6744a68a334b0e1096963f5d92c2f0f2",
-      "integrity": "sha256:ca4a8ef972486ddab0cda4704521abdc6744a68a334b0e1096963f5d92c2f0f2"
+      "version": "2026.6.11",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/node24@sha256:746d6d1aaf8ba9774f6be3f9fbc04bbbde75dd2dd977567e03b9c6b93a8f8abc",
+      "integrity": "sha256:746d6d1aaf8ba9774f6be3f9fbc04bbbde75dd2dd977567e03b9c6b93a8f8abc"
     },
     "ghcr.io/lifadev/devcontainers/features/starship": {
       "version": "2026.4.30",
@@ -31,9 +31,9 @@
       "integrity": "sha256:c2747446d951e9f2fd4e35dc9a294c42da3db0ed52f4e3b9b18012c7c020a153"
     },
     "ghcr.io/wemaintain/devcontainers/features/adb": {
-      "version": "2026.5.22-2",
-      "resolved": "ghcr.io/wemaintain/devcontainers/features/adb@sha256:4d77f287a1bfcc83d80e66d29ed85faa29acfbceb58d14636c714b22f917562e",
-      "integrity": "sha256:4d77f287a1bfcc83d80e66d29ed85faa29acfbceb58d14636c714b22f917562e"
+      "version": "2026.5.22",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/adb@sha256:8feca63d51bb2778ee9a08b8ec8badb73946197f2d5e67518ab13e4041d0db60",
+      "integrity": "sha256:8feca63d51bb2778ee9a08b8ec8badb73946197f2d5e67518ab13e4041d0db60"
     },
     "ghcr.io/wemaintain/devcontainers/features/git": {
       "version": "2026.4.20",
@@ -41,9 +41,9 @@
       "integrity": "sha256:3ddd3789fe4cb64012e23a08d96a4cb73fa01b6e272e1ce735a6b8d467965067"
     },
     "ghcr.io/wemaintain/devcontainers/features/nx": {
-      "version": "2026.5.14",
-      "resolved": "ghcr.io/wemaintain/devcontainers/features/nx@sha256:cde6da6928d62a2acdd2b850a866d198d170afb773d2f76eab34dc864a8e9145",
-      "integrity": "sha256:cde6da6928d62a2acdd2b850a866d198d170afb773d2f76eab34dc864a8e9145"
+      "version": "2026.5.25",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/nx@sha256:e1e23b2b917e446a335aaef973b2fd0a1f21a6cb4ef5d46df266bc2445dff14b",
+      "integrity": "sha256:e1e23b2b917e446a335aaef973b2fd0a1f21a6cb4ef5d46df266bc2445dff14b"
     }
   }
 }
