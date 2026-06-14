@@ -1,7 +1,7 @@
 {
   "id": "helm",
   "name": "helm",
-  "version": "2026.6.9",
+  "version": "2026.6.14",
   "containerEnv": {
     "HELM_PLUGINS": "/opt/helm/plugins"
   },
@@ -11,19 +11,19 @@
       "dependencies": [
         {
           "name": "helm",
-          "version": "3.21.0",
+          "version": "3.21.1",
           "hint": "tags/v3\\.[0-9]+\\.[0-9]+",
           "repository": "github.com/helm/helm",
           "artifacts": [
             {
               "architecture": "amd64",
               "url": "https://get.helm.sh/helm-v${VERSION}-linux-amd64.tar.gz",
-              "checksum": "0093eb572e3d2380f094df162ddb525e219249de88957afe24cfbb19632acd36"
+              "checksum": "a349c62d6ab2d5d11f044fc0d3afa6deed7d27cc7d5c351f536b169d9fc2cc1a"
             },
             {
               "architecture": "arm64",
               "url": "https://get.helm.sh/helm-v${VERSION}-linux-arm64.tar.gz",
-              "checksum": "8de5a0c9a47431e59fd560e91e0779c8cf9316c383da7efb84128a4c339ecb2d"
+              "checksum": "9b3deeecb56c4795aa806858fa4d6388c049e3edfcd771723bd12c1cbef66893"
             }
           ]
         },
