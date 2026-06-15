@@ -1,9 +1,9 @@
 {
   "features": {
     "ghcr.io/lifadev/devcontainers/features/aws2": {
-      "version": "2026.5.21",
-      "resolved": "ghcr.io/lifadev/devcontainers/features/aws2@sha256:6eac334283825824428578ff5c947a56c51398e1d84ccc997887c194bdf3eac8",
-      "integrity": "sha256:6eac334283825824428578ff5c947a56c51398e1d84ccc997887c194bdf3eac8"
+      "version": "2026.5.22",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/aws2@sha256:1331b746990a51c5c704143dc5716d15288d2ef68017541e4fb8b2feedba5fd3",
+      "integrity": "sha256:1331b746990a51c5c704143dc5716d15288d2ef68017541e4fb8b2feedba5fd3"
     },
     "ghcr.io/lifadev/devcontainers/features/base": {
       "version": "2025.4.12",
@@ -46,9 +46,9 @@
       "integrity": "sha256:3ddd3789fe4cb64012e23a08d96a4cb73fa01b6e272e1ce735a6b8d467965067"
     },
     "ghcr.io/wemaintain/devcontainers/features/nx": {
-      "version": "2026.5.14",
-      "resolved": "ghcr.io/wemaintain/devcontainers/features/nx@sha256:cde6da6928d62a2acdd2b850a866d198d170afb773d2f76eab34dc864a8e9145",
-      "integrity": "sha256:cde6da6928d62a2acdd2b850a866d198d170afb773d2f76eab34dc864a8e9145"
+      "version": "2026.5.25",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/nx@sha256:e1e23b2b917e446a335aaef973b2fd0a1f21a6cb4ef5d46df266bc2445dff14b",
+      "integrity": "sha256:e1e23b2b917e446a335aaef973b2fd0a1f21a6cb4ef5d46df266bc2445dff14b"
     },
     "ghcr.io/wemaintain/devcontainers/features/terraform": {
       "version": "2026.5.20",
