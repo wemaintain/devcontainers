@@ -1,9 +1,9 @@
 {
   "features": {
     "ghcr.io/lifadev/devcontainers/features/aws2": {
-      "version": "2026.5.21",
-      "resolved": "ghcr.io/lifadev/devcontainers/features/aws2@sha256:6eac334283825824428578ff5c947a56c51398e1d84ccc997887c194bdf3eac8",
-      "integrity": "sha256:6eac334283825824428578ff5c947a56c51398e1d84ccc997887c194bdf3eac8"
+      "version": "2026.6.8",
+      "resolved": "ghcr.io/lifadev/devcontainers/features/aws2@sha256:5ff5cbc39ff6980df1599f9a66f4ac5549e4ee83a86a0dabfee9451c1813926a",
+      "integrity": "sha256:5ff5cbc39ff6980df1599f9a66f4ac5549e4ee83a86a0dabfee9451c1813926a"
     },
     "ghcr.io/lifadev/devcontainers/features/base": {
       "version": "2025.4.12",
@@ -31,9 +31,9 @@
       "integrity": "sha256:3ddd3789fe4cb64012e23a08d96a4cb73fa01b6e272e1ce735a6b8d467965067"
     },
     "ghcr.io/wemaintain/devcontainers/features/helm": {
-      "version": "2026.5.15",
-      "resolved": "ghcr.io/wemaintain/devcontainers/features/helm@sha256:4ad9af67062ae36059df90da3b3ba40eaaeb2ae4359421d92660d5f022c3d9d7",
-      "integrity": "sha256:4ad9af67062ae36059df90da3b3ba40eaaeb2ae4359421d92660d5f022c3d9d7"
+      "version": "2026.5.22",
+      "resolved": "ghcr.io/wemaintain/devcontainers/features/helm@sha256:4911bf1eb660bb519f2edbef110354f2e5f7b4157705f7b50f3eafee045c6d29",
+      "integrity": "sha256:4911bf1eb660bb519f2edbef110354f2e5f7b4157705f7b50f3eafee045c6d29"
     },
     "ghcr.io/wemaintain/devcontainers/features/kube": {
       "version": "2026.5.12",
