@@ -1,6 +1,6 @@
 {
   "node20": {
-    "image": "debian:trixie-20260518",
+    "image": "debian:trixie-20260803",
     "features": {
       "ghcr.io/lifadev/devcontainers/features/node20:2025": {},
       "angular": {}
