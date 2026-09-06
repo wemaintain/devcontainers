@@ -1,26 +1,26 @@
 {
   "id": "kube",
   "name": "kube",
-  "version": "2026.5.12",
+  "version": "2026.9.6",
   "customizations": {
     "extensions": ["ms-kubernetes-tools.vscode-kubernetes-tools"],
     "manifest": {
       "dependencies": [
         {
           "name": "kube",
-          "version": "1.36.1",
+          "version": "1.37.0",
           "hint": "tags/v[0-9]+\\.[0-9]+\\.[0-9]+",
           "repository": "github.com/kubernetes/kubernetes",
           "artifacts": [
             {
               "architecture": "amd64",
               "url": "https://dl.k8s.io/release/v${VERSION}/bin/linux/amd64/kubectl",
-              "checksum": "629d3f410e09bf49b64ae7079f7f0bda1191efed311f7d37fdbab0ad5b0ec2b7"
+              "checksum": "6129359f4e1f3848a5572ccb0b26cf28b8ca08cef38c95a765b2f64a2c961a2f"
             },
             {
               "architecture": "arm64",
               "url": "https://dl.k8s.io/release/v${VERSION}/bin/linux/arm64/kubectl",
-              "checksum": "59f7ee8e477fae658447607dc3c8790ac17a1b016c01c622c12070e969e2d4e7"
+              "checksum": "922df28df248cc00a9e025f947704f1d1482de64ece54cfe57e61f19eaf1eef3"
             }
           ]
         },
