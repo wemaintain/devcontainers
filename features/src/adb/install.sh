@@ -64,7 +64,7 @@ for arg in "\$@"; do
   fi
 done
 
-exec "\$(dirname "\$0")/adb.real" "\$@"
+exec "$ADB_REAL" "\$@"
 EOF
 
     chmod +x "$ADB_BIN"
