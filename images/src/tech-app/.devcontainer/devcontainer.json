@@ -1,5 +1,5 @@
 {
-  "image": "debian:trixie-20260824",
+  "image": "debian:trixie-20261005",
   "features": {
     "ghcr.io/lifadev/devcontainers/features/base": {},
     "ghcr.io/lifadev/devcontainers/features/bash": {},
@@ -30,7 +30,7 @@
   "customizations": {
     "manifest": {
       "name": "tech-app",
-      "version": "2026.9.14"
+      "version": "2026.10.14"
     },
     "vscode": {
       "extensions": ["fwcd.kotlin"]
